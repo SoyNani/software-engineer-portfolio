@@ -2,10 +2,10 @@
 
 import { motion } from "framer-motion";
 import { ArrowDown, Sparkles } from "lucide-react";
-import { ScrollIndicator } from "@/components/molecules";
 import Link from "next/link";
+import { ScrollIndicator } from "../molecules/ScrollIndicator";
 
-export const HeroSection = () => {
+export function HeroSection () {
     return (
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
             {/* Grid background */}

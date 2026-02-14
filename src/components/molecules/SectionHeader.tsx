@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Badge } from "@/components/atoms";
+import {Badge} from "../atoms/Badge";
 
 interface SectionHeaderProps {
     tag: string;
@@ -10,7 +10,7 @@ interface SectionHeaderProps {
     highlight?: string;
 }
 
-export const SectionHeader = ({ tag, title, description, highlight }: SectionHeaderProps) => {
+export function SectionHeader ({ tag, title, description, highlight }: SectionHeaderProps) {
     // Function to render title with highlight
     const renderTitle = () => {
         if (!highlight) return title;
@@ -44,7 +44,7 @@ export const SectionHeader = ({ tag, title, description, highlight }: SectionHea
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="text-3xl md:text-4xl font-extrabold mb-8 max-w-3xl leading-tight"
+                className="text-2xl md:text-4xl font-bold mb-8 max-w-3xl leading-tight"
             >
                 {renderTitle()}
             </motion.h2>

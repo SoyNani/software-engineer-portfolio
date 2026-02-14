@@ -1,8 +1,8 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { NavLink } from "@/components/atoms";
 import { NavLink as NavLinkType } from "@/types/navigation.types";
 import Link from "next/link";
 import { useEffect } from "react";
+import {NavLink} from "../atoms/NavLink";
 
 /**
  * MobileMenu component - mobile navigation drawer
@@ -14,7 +14,7 @@ interface MobileMenuProps {
     links: NavLinkType[];
 }
 
-export const MobileMenu = ({ isOpen, onClose, links }: MobileMenuProps) => {
+export function MobileMenu ({ isOpen, onClose, links }: MobileMenuProps) {
     // Handle Escape key to close menu
     useEffect(() => {
         const handleEscape = (e: KeyboardEvent) => {

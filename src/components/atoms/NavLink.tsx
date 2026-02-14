@@ -9,12 +9,12 @@ import Link from "next/link";
  */
 import { NavLinkProps } from "@/types/components.types";
 
-export const NavLink = ({
+export function NavLink ({
     href,
     children,
     onClick,
     className = "",
-}: NavLinkProps) => {
+}: NavLinkProps) {
     return (
         <Link
             href={href}

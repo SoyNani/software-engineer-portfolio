@@ -1,22 +1,27 @@
 import { LucideIcon } from "lucide-react";
+import { Badge as ShadcnBadge } from "@/components/ui/badge";
+import { cn } from "@/lib/utils";
 
-import { BadgeProps } from "@/types/components.types";
+interface BadgeProxyProps {
+    icon?: LucideIcon;
+    children: React.ReactNode;
+    variant?: "default" | "secondary" | "destructive" | "outline" | "mono";
+    className?: string;
+}
 
-export const Badge = ({
+export function Badge({
     icon: Icon,
     children,
     variant = "default",
     className = "",
-}: BadgeProps) => {
+}: BadgeProxyProps) {
     return (
-        <span
-            className={`inline-flex items-center gap-2 text-xs font-medium border px-3 py-1.5 rounded-full
-        ${variant === "mono" ? "font-mono" : ""}
-        text-primary bg-primary/10 border-primary/20
-        ${className}`}
+        <ShadcnBadge
+            variant={variant}
+            className={cn("gap-2 px-3 py-1.5", className)}
         >
             {Icon && <Icon size={12} />}
             {children}
-        </span>
+        </ShadcnBadge>
     );
 };

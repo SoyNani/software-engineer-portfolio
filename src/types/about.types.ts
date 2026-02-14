@@ -12,4 +12,5 @@ export interface AboutContentType {
     titleHighlight: string;
     description: string;
     features: FeatureCardType[];
+    techStack: string[];
 }

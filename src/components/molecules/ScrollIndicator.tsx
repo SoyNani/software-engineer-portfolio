@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
  * ScrollIndicator component - animated scroll hint indicator
  * Respects user's reduced motion preferences
  */
-export const ScrollIndicator = () => {
+export function ScrollIndicator () {
     return (
         <motion.div
             initial={{ opacity: 0 }}

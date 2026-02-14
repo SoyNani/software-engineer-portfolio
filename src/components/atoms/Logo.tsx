@@ -10,7 +10,7 @@ interface LogoProps {
     href?: string;
 }
 
-export const Logo = ({ className = "", href = "#" }: LogoProps) => {
+export function Logo ({ className = "", href = "#" }: LogoProps) {
     return (
         <Link
             href={href}

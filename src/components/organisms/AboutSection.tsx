@@ -1,9 +1,11 @@
 "use client";
 
 import { aboutContent } from "@/data/about.content";
-import { SectionHeader, FeatureCard } from "@/components/molecules";
+import { SectionHeader } from "../molecules/SectionHeader";
+import { FeatureCard } from "../molecules/FeatureCard";
+import { TechStack } from "../molecules/TechStack";
 
-export const AboutSection = () => {
+export function AboutSection() {
     return (
         <section id="about" className="py-24 relative overflow-hidden">
             <div className="container mx-auto px-6 relative z-10">
@@ -23,6 +25,8 @@ export const AboutSection = () => {
                         />
                     ))}
                 </div>
+
+                <TechStack technologies={aboutContent.techStack} />
             </div>
 
             {/* Subtle background element */}

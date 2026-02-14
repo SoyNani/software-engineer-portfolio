@@ -27,4 +27,14 @@ export const aboutContent: AboutContentType = {
             icon: "zap",
         },
     ],
+    techStack: [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "JavaScript",
+        "Tailwind CSS",
+        "Node.js",
+        "AWS",
+        "Python",
+    ],
 };

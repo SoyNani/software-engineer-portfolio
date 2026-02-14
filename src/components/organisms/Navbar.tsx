@@ -2,9 +2,10 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { Menu, X } from "lucide-react";
-import { Logo } from "@/components/atoms";
-import { NavLinks, MobileMenu } from "@/components/molecules";
 import { navLinks } from "@/lib/navigation.config";
+import { Logo } from "@/components/atoms/Logo";
+import { NavLinks } from "@/components/molecules/NavLinks";
+import { MobileMenu } from "@/components/molecules/MobileMenu";
 
 /**
  * Navbar organism component
@@ -28,8 +29,8 @@ export const Navbar = () => {
     return (
         <nav
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-                    ? "bg-background/80 backdrop-blur-xl border-b border-border shadow-sm"
-                    : "bg-transparent"
+                ? "bg-background/80 backdrop-blur-xl border-b border-border shadow-sm"
+                : "bg-transparent"
                 }`}
             role="navigation"
             aria-label="Main navigation"

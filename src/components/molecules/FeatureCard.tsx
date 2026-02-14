@@ -9,7 +9,7 @@ interface FeatureCardProps extends FeatureCardType {
     index: number;
 }
 
-export const FeatureCard = ({ title, description, icon, index }: FeatureCardProps) => {
+export function FeatureCard ({ title, description, icon, index }: FeatureCardProps) {
     // Dynamically get the icon component
     const IconName = icon as keyof typeof LucideIcons;
     const Icon = LucideIcons[IconName] as LucideIcons.LucideIcon;
@@ -40,3 +40,5 @@ export const FeatureCard = ({ title, description, icon, index }: FeatureCardProp
         </motion.div>
     );
 };
+
+
