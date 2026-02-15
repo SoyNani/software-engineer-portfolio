@@ -36,7 +36,7 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
                 className
             )}
         >
-            <Card className="h-full bg-[#0D0D12] border-white/5 rounded-3xl overflow-hidden transition-all hover:border-primary/30 flex flex-col p-0 gap-0 shadow-none">
+            <Card className="h-full bg-[#0D0D12] border-white/5 rounded-3xl overflow-hidden transition-all duration-300 hover:border-primary/40 hover:shadow-[0_0_30px_-5px_rgba(145,80,226,0.3)] group-hover:shadow-[0_0_30px_-5px_rgba(145,80,226,0.3)] flex flex-col p-0 gap-0">
                 {/* Visual Header / Image Area */}
                 <CardHeader className="p-0 space-y-0">
                     <div className="aspect-video md:aspect-auto md:h-72 bg-[#16161D] relative overflow-hidden flex items-center justify-center">
@@ -58,16 +58,16 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
                     </div>
                 </CardHeader>
 
-                <CardContent className="p-8 md:p-10 flex-1 flex flex-col">
+                <CardContent className="p-8 md:p-10 pb-0 md:pb-0 flex-1 flex flex-col">
                     <CardTitle className="text-xl md:text-2xl font-bold mb-4 group-hover:text-primary transition-colors leading-tight">
                         {title}
                     </CardTitle>
-                    <p className="text-muted-foreground leading-relaxed mb-8 max-w-2xl text-[15px]">
+                    <p className="text-muted-foreground leading-relaxed mb-6 max-w-2xl text-[15px]">
                         {description}
                     </p>
 
                     {/* Tags */}
-                    <div className="flex flex-wrap gap-2 mb-8">
+                    <div className="flex flex-wrap gap-2 mb-4">
                         {tags.map((tag) => (
                             <Badge
                                 key={tag}
@@ -109,7 +109,6 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
                     )}
                 </CardFooter>
 
-                {/* Premium Glow Effect on Hover */}
                 <div className="absolute inset-0 pointer-events-none bg-linear-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
             </Card>
         </motion.div>

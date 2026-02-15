@@ -1,9 +1,5 @@
 import { motion } from "framer-motion";
 
-/**
- * ScrollIndicator component - animated scroll hint indicator
- * Respects user's reduced motion preferences
- */
 export function ScrollIndicator () {
     return (
         <motion.div

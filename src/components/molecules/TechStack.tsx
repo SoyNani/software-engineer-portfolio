@@ -4,14 +4,11 @@ interface TechStackProps {
     technologies: string[];
 }
 
-/**
- * TechStack molecule - displays a labeled list of technology badges
- * @param technologies - Array of technology names
- */
+
 export function TechStack({ technologies }: TechStackProps) {
     return (
         <div className="mt-20 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300 fill-mode-both">
-            <h3 className="text-[10px] font-mono tracking-widest text-muted-foreground/70 uppercase mb-2">
+            <h3 className="text-sm font-mono tracking-widest text-muted-foreground/70 uppercase mb-2">
                 Stack Tecnológico
             </h3>
             <div className="flex flex-wrap gap-2.5">

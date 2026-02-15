@@ -1,12 +1,5 @@
 import Link from "next/link";
 
-/**
- * NavLink component - navigation link with hover and focus states
- * @param href - Link destination
- * @param children - Link content
- * @param onClick - Optional click handler
- * @param className - Additional CSS classes
- */
 import { NavLinkProps } from "@/types/components.types";
 
 export function NavLink ({

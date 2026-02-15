@@ -2,19 +2,29 @@ import { motion, AnimatePresence } from "framer-motion";
 import { NavLink as NavLinkType } from "@/types/navigation.types";
 import Link from "next/link";
 import { useEffect } from "react";
-import {NavLink} from "../atoms/NavLink";
+import { NavLink } from "../atoms/NavLink";
 
-/**
- * MobileMenu component - mobile navigation drawer
- * Includes accessibility features like Escape key handling and focus management
- */
+
+import { LogIn, LogOut, FileText } from "lucide-react";
+import { protectedContent } from "@/data/protected.content";
+
 interface MobileMenuProps {
     isOpen: boolean;
     onClose: () => void;
     links: NavLinkType[];
+    onLoginClick: () => void;
+    isLoggedIn: boolean;
+    onLogout: () => void;
 }
 
-export function MobileMenu ({ isOpen, onClose, links }: MobileMenuProps) {
+export function MobileMenu({
+    isOpen,
+    onClose,
+    links,
+    onLoginClick,
+    isLoggedIn,
+    onLogout
+}: MobileMenuProps) {
     // Handle Escape key to close menu
     useEffect(() => {
         const handleEscape = (e: KeyboardEvent) => {
@@ -44,13 +54,39 @@ export function MobileMenu ({ isOpen, onClose, links }: MobileMenuProps) {
                                 {link.label}
                             </NavLink>
                         ))}
-                        <Link
-                            href="#contact"
-                            onClick={onClose}
-                            className="text-sm px-4 py-2 rounded-lg text-center gradient-button"
-                        >
-                            Hablemos
-                        </Link>
+
+                        {isLoggedIn ? (
+                            <div className="flex flex-col gap-3 pt-2">
+                                <a
+                                    href={protectedContent.cvUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    onClick={onClose}
+                                    className="text-sm px-4 py-3 rounded-lg gradient-button text-center flex items-center justify-center gap-2 font-bold"
+                                >
+                                    <FileText size={16} />
+                                    Descargar CV
+                                </a>
+                                <button
+                                    onClick={() => {
+                                        onLogout();
+                                        onClose();
+                                    }}
+                                    className="text-sm px-4 py-3 rounded-lg border border-border text-center flex items-center justify-center gap-2"
+                                >
+                                    <LogOut size={16} />
+                                    Cerrar Sesión
+                                </button>
+                            </div>
+                        ) : (
+                            <button
+                                onClick={onLoginClick}
+                                className="text-sm px-4 py-3 rounded-lg text-center gradient-button flex items-center justify-center gap-2"
+                            >
+                                <LogIn size={16} />
+                                Iniciar Sesión
+                            </button>
+                        )}
                     </div>
                 </motion.div>
             )}

@@ -22,14 +22,15 @@ export function ProcessCard({ item, className }: ProcessCardProps) {
             whileHover={{ y: -5 }}
             className={cn("h-full", className)}
         >
-            <Card className="h-full bg-[#0D0D12] border-white/5 rounded-2xl overflow-hidden transition-all hover:border-primary/30 flex items-center p-6 md:p-8 gap-6 shadow-none">
+            <Card className="h-full bg-[#0D0D12] border-white/5 rounded-2xl overflow-hidden transition-all duration-300 hover:border-primary/40 hover:shadow-[0_0_30px_-5px_rgba(145,80,226,0.3)] group-hover:shadow-[0_0_30px_-5px_rgba(145,80,226,0.3)] flex items-center p-6 md:p-8 gap-6 shadow-none">
                 {/* Icon Container */}
                 <div className="shrink-0 size-12 md:size-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary/10 transition-colors">
                     <Icon size={24} />
                 </div>
 
                 <CardContent className="p-0 flex flex-col gap-2">
-                    <h3 className="text-base md:text-xl font-semibold text-foreground transition-colors leading-tight">
+                    <h3 className="text-base md:text-xl font-semibold
+                     text-foreground transition-colors leading-tight">
                         {title}
                     </h3>
                     <p className="text-muted-foreground leading-relaxed text-[14px] md:text-[15px]">

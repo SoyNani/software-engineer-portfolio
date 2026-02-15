@@ -9,8 +9,8 @@ interface FeatureCardProps extends FeatureCardType {
     index: number;
 }
 
-export function FeatureCard ({ title, description, icon, index }: FeatureCardProps) {
-    // Dynamically get the icon component
+export function FeatureCard({ title, description, icon, index }: FeatureCardProps) {
+
     const IconName = icon as keyof typeof LucideIcons;
     const Icon = LucideIcons[IconName] as LucideIcons.LucideIcon;
 
@@ -22,12 +22,12 @@ export function FeatureCard ({ title, description, icon, index }: FeatureCardPro
             transition={{ duration: 0.5, delay: index * 0.1 }}
             className="h-full"
         >
-            <Card className="h-full bg-card/30 border-border/50 card-hover group overflow-hidden flex flex-col gap-0 py-0">
-                <CardHeader className="pt-6 pb-4">
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-2 text-primary group-hover:scale-110 transition-transform duration-300">
-                        {Icon && <Icon size={24} />}
+            <Card className="h-full bg-card/50 border-border/50 group overflow-hidden flex flex-col gap-0 py-0 transition-all duration-300 hover:border-primary/40 hover:shadow-[0_0_30px_-5px_rgba(145,80,226,0.3)]">
+                <CardHeader className="pt-6 pb-4 flex flex-row items-center gap-4">
+                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-300 shrink-0">
+                        {Icon && <Icon size={20} />}
                     </div>
-                    <CardTitle className="text-lg font-bold text-foreground">
+                    <CardTitle className="text-lg font-bold text-foreground leading-tight">
                         {title}
                     </CardTitle>
                 </CardHeader>

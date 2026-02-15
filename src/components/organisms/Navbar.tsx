@@ -6,6 +6,9 @@ import { navLinks } from "@/lib/navigation.config";
 import { Logo } from "@/components/atoms/Logo";
 import { NavLinks } from "@/components/molecules/NavLinks";
 import { MobileMenu } from "@/components/molecules/MobileMenu";
+import { useAuth } from "@/context/AuthContext";
+import { LoginModal } from "@/components/molecules/LoginModal";
+import { LogIn, LogOut } from "lucide-react";
 
 /**
  * Navbar organism component
@@ -15,6 +18,8 @@ import { MobileMenu } from "@/components/molecules/MobileMenu";
 export const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
     const [mobileOpen, setMobileOpen] = useState(false);
+    const [loginModalOpen, setLoginModalOpen] = useState(false);
+    const { isLoggedIn, logout } = useAuth();
 
     useEffect(() => {
         const onScroll = () => setScrolled(window.scrollY > 20);
@@ -39,7 +44,12 @@ export const Navbar = () => {
                 <Logo />
 
                 {/* Desktop Navigation */}
-                <NavLinks links={navLinks} />
+                <NavLinks
+                    links={navLinks}
+                    onLoginClick={() => setLoginModalOpen(true)}
+                    isLoggedIn={isLoggedIn}
+                    onLogout={logout}
+                />
 
                 {/* Mobile toggle */}
                 <button
@@ -59,8 +69,19 @@ export const Navbar = () => {
                     isOpen={mobileOpen}
                     onClose={handleMobileClose}
                     links={navLinks}
+                    onLoginClick={() => {
+                        handleMobileClose();
+                        setLoginModalOpen(true);
+                    }}
+                    isLoggedIn={isLoggedIn}
+                    onLogout={logout}
                 />
             </div>
+
+            <LoginModal
+                isOpen={loginModalOpen}
+                onClose={() => setLoginModalOpen(false)}
+            />
         </nav>
     );
 };

@@ -7,7 +7,7 @@ import { projects } from "@/data/projects.content";
 export function ProjectsSection() {
     return (
         <section id="projects" className="py-24 md:py-32 bg-[#08080B]">
-            <div className="container mx-auto px-6">
+            <div className="container mx-auto px-6 max-w-7xl">
                 <SectionHeader
                     tag="Proyectos"
                     title="Productos que he construido"

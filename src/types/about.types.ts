@@ -3,7 +3,7 @@ import { LucideIcon } from "lucide-react";
 export interface FeatureCardType {
     title: string;
     description: string;
-    icon: string; // Icon name string to be mapped or LucideIcon if handled directly
+    icon: string; 
 }
 
 export interface AboutContentType {

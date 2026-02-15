@@ -8,7 +8,7 @@ import { TechStack } from "../molecules/TechStack";
 export function AboutSection() {
     return (
         <section id="about" className="py-24 relative overflow-hidden">
-            <div className="container mx-auto px-6 relative z-10">
+            <div className="container mx-auto px-6 max-w-7xl relative z-10">
                 <SectionHeader
                     tag={aboutContent.tag}
                     title={aboutContent.titleLine1 + " " + aboutContent.titleHighlight}

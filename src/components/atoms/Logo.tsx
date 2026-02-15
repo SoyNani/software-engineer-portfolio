@@ -1,10 +1,5 @@
 import Link from "next/link";
 
-/**
- * Logo component - displays the site branding
- * @param className - Additional CSS classes
- * @param href - Link destination, defaults to home
- */
 interface LogoProps {
     className?: string;
     href?: string;

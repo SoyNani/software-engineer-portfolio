@@ -1,9 +1,13 @@
-import { AboutSection } from "@/components/organisms/AboutSection";
-import { HeroSection } from "@/components/organisms/HeroSection";
 import { Navbar } from "@/components/organisms/Navbar";
+import { HeroSection } from "@/components/organisms/HeroSection";
+import { AboutSection } from "@/components/organisms/AboutSection";
 import { ProjectsSection } from "@/components/organisms/ProjectsSection";
 import { ProcessSection } from "@/components/organisms/ProcessSection";
-
+import { ContactSection } from "@/components/organisms/ContactSection";
+import { Footer } from "@/components/organisms/Footer";
+import { ExperienceSection } from "@/components/organisms/ExperienceSection";
+import { EducationSection } from "@/components/organisms/EducationSection";
+import { ProtectedArea } from "@/components/molecules/ProtectedArea";
 
 export default function Home() {
   return (
@@ -12,13 +16,18 @@ export default function Home() {
       <main>
         <HeroSection />
         <AboutSection />
-        <ProjectsSection />
+        <ProtectedArea>
+          <ExperienceSection />
+        </ProtectedArea>
+        <ProjectsSection />      
+        <ProtectedArea>
+          <EducationSection />
+        </ProtectedArea>
         <ProcessSection />
+        <ContactSection />
       </main>
 
-      <section id="contact" className="min-h-screen flex items-center justify-center">
-        <p className="text-muted-foreground">Contacto - Coming soon</p>
-      </section>
+      <Footer />
     </div>
   );
 }

@@ -11,7 +11,7 @@ interface SectionHeaderProps {
 }
 
 export function SectionHeader ({ tag, title, description, highlight }: SectionHeaderProps) {
-    // Function to render title with highlight
+
     const renderTitle = () => {
         if (!highlight) return title;
 

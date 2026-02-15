@@ -7,12 +7,12 @@ import { processItems } from "@/data/process.content";
 export function ProcessSection() {
     return (
         <section id="process" className="py-24 md:py-32 bg-[#08080B]">
-            <div className="container mx-auto px-6">
+            <div className="container mx-auto px-6 max-w-7xl">
                 <SectionHeader
                     tag="Proceso"
                     title="Cómo construyo"
                     highlight="construyo"
-                    description="Mi enfoque combina pensamiento de producto con ingeniería de calidad."
+                    description="Trabajo con metodologías ágiles, creando código limpio, modular y escalable. Analizo requerimientos desde la lógica de negocio, propongo soluciones viables y colaboro en equipo con comunicación clara para perfiles técnicos y no técnicos."
                 />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
