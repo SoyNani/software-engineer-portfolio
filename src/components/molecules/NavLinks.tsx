@@ -22,11 +22,13 @@ export function NavLinks({
 }: NavLinksProps) {
     return (
         <div className={`hidden md:flex items-center gap-8 ${className}`}>
-            {links.map((link) => (
-                <NavLink key={link.href} href={link.href}>
-                    {link.label}
-                </NavLink>
-            ))}
+            {links
+                .filter(link => !link.isProtected || isLoggedIn)
+                .map((link) => (
+                    <NavLink key={link.href} href={link.href}>
+                        {link.label}
+                    </NavLink>
+                ))}
 
             {isLoggedIn ? (
                 <div className="flex items-center gap-4">

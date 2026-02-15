@@ -80,7 +80,7 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
                     </div>
                 </CardContent>
 
-                <CardFooter className="p-8 md:p-10 pt-0 mt-auto flex items-center gap-6">
+                <CardFooter className="p-8 md:p-10 pt-0 mt-[2px] flex items-center gap-6">
                     {demoUrl && (
                         <Button
                             variant="link"

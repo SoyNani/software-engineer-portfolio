@@ -114,10 +114,10 @@ export function HeroSection() {
                     </div>
 
                     <Link
-                        href="#projects"
+                        href="#experience"
                         className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-medium px-8 py-4 rounded-xl hover:opacity-90 transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 group"
                     >
-                        Ver proyectos
+                        Ver experiencia
                         <ArrowDown size={18} className="group-hover:translate-y-1 transition-transform" />
                     </Link>
                 </motion.div>

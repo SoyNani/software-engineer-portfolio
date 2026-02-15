@@ -49,11 +49,13 @@ export function MobileMenu({
                     aria-label="Mobile navigation menu"
                 >
                     <div className="flex flex-col gap-4 px-6 py-6">
-                        {links.map((link) => (
-                            <NavLink key={link.href} href={link.href} onClick={onClose}>
-                                {link.label}
-                            </NavLink>
-                        ))}
+                        {links
+                            .filter(link => !link.isProtected || isLoggedIn)
+                            .map((link) => (
+                                <NavLink key={link.href} href={link.href} onClick={onClose}>
+                                    {link.label}
+                                </NavLink>
+                            ))}
 
                         {isLoggedIn ? (
                             <div className="flex flex-col gap-3 pt-2">

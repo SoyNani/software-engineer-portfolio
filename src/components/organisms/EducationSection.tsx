@@ -18,7 +18,7 @@ export const EducationSection = () => {
         <section id="education" className="py-24 md:py-32 bg-[#08080B]">
             <div className="container mx-auto px-6 max-w-7xl">
                 <SectionHeader
-                    tag="Construyendo Conocimiento"
+                    tag="Formación"
                     title="Educación & Certificados"
                     highlight="Certificados"
                     description="Mi trayectoria académica y certificaciones que validan mi expertise técnico y compromiso con el aprendizaje constante."
