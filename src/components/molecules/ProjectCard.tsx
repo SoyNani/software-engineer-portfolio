@@ -21,7 +21,7 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project, className }: ProjectCardProps) {
-    const { title, description, tags, demoUrl, githubUrl, isFeatured, category } = project;
+    const { title, description, tags, demoUrl, githubUrl, isFeatured, category, image } = project;
 
     return (
         <motion.div
@@ -40,12 +40,22 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
                 {/* Visual Header / Image Area */}
                 <CardHeader className="p-0 space-y-0">
                     <div className="aspect-video md:aspect-auto md:h-72 bg-[#16161D] relative overflow-hidden flex items-center justify-center">
-                        <div className="text-white/10 font-mono text-sm tracking-widest uppercase select-none">
-                            {title}
-                        </div>
+                        {image ? (
+                            <>
+                                <img src={image} alt={title} className="absolute inset-0 w-full h-full object-cover" />
+                                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/40" />
+                                <div className="text-white/10 font-mono text-sm tracking-widest uppercase select-none z-10">
+                                    {title}
+                                </div>
+                            </>
+                        ) : (
+                            <div className="text-white/10 font-mono text-sm tracking-widest uppercase select-none">
+                                {title}
+                            </div>
+                        )}
 
                         {category && (
-                            <CardAction className="p-6">
+                            <CardAction className="absolute top-4 right-4 p-0 z-20">
                                 <Badge
                                     variant="mono"
                                     className="bg-primary/20 text-primary border-primary/30 backdrop-blur-md gap-1.5 px-3 py-1.5 h-auto text-[10px] uppercase font-bold tracking-wider"

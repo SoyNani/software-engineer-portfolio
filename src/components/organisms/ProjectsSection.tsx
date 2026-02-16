@@ -3,6 +3,7 @@
 import { SectionHeader } from "../molecules/SectionHeader";
 import { ProjectCard } from "../molecules/ProjectCard";
 import { projects } from "@/data/projects.content";
+import { ProtectedArea } from "../molecules/ProtectedArea";
 
 export function ProjectsSection() {
     return (
@@ -17,10 +18,13 @@ export function ProjectsSection() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                     {projects.map((project) => (
-                        <ProjectCard
-                            key={project.id}
-                            project={project}
-                        />
+                        project.id === "ecommerce-headless" ? (
+                            <ProtectedArea key={project.id}>
+                                <ProjectCard project={project} />
+                            </ProtectedArea>
+                        ) : (
+                            <ProjectCard key={project.id} project={project} />
+                        )
                     ))}
                 </div>
             </div>

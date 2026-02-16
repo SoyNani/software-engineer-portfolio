@@ -30,7 +30,7 @@ export const ContactCard = () => {
                             <span className="text-sm font-semibold uppercase tracking-wider">Acceso Restringido</span>
                         </div>
                         <p className="text-sm text-muted-foreground leading-relaxed italic">
-                            "Si necesitas contactarme, no dudes en escribirme por LinkedIn o GitHub para solicitar las credenciales de acceso y que puedas ver todo sobre mi perfil."
+                            "No dudes en escribirme para solicitar las credenciales de acceso y que puedas ver todo sobre mi perfil."
                         </p>
                     </div>
                 )}
