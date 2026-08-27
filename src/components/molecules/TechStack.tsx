@@ -1,26 +1,33 @@
-import { Badge } from "../atoms/Badge";
+"use client";
+
+import { motion } from "framer-motion";
 
 interface TechStackProps {
     technologies: string[];
 }
 
-
 export function TechStack({ technologies }: TechStackProps) {
     return (
-        <div className="mt-20 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300 fill-mode-both">
-            <h3 className="text-sm font-mono tracking-widest text-muted-foreground/70 uppercase mb-2">
+        <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mt-16 md:mt-20"
+        >
+            <h3 className="text-[11px] font-medium tracking-[0.2em] uppercase text-white/30 mb-5">
                 Stack Tecnológico
             </h3>
-            <div className="flex flex-wrap gap-2.5">
+            <div className="flex flex-wrap gap-2">
                 {technologies.map((tech) => (
-                    <Badge
+                    <span
                         key={tech}
-                        className="text-[13px] font-medium py-2 px-5 bg-[#1C1C21] text-white border-none hover:bg-[#25252b] transition-colors"
+                        className="text-[13px] font-medium py-2 px-4 rounded-full bg-white/[0.04] text-white/70 border border-white/6 hover:border-white/15 hover:text-white transition-colors"
                     >
                         {tech}
-                    </Badge>
+                    </span>
                 ))}
             </div>
-        </div>
+        </motion.div>
     );
-};
+}
