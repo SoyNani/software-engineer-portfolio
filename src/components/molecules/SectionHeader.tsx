@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {Badge} from "../atoms/Badge";
 
 interface SectionHeaderProps {
     tag: string;
@@ -10,11 +9,9 @@ interface SectionHeaderProps {
     highlight?: string;
 }
 
-export function SectionHeader ({ tag, title, description, highlight }: SectionHeaderProps) {
-
+export function SectionHeader({ tag, title, description, highlight }: SectionHeaderProps) {
     const renderTitle = () => {
         if (!highlight) return title;
-
         const parts = title.split(highlight);
         return (
             <>
@@ -26,38 +23,36 @@ export function SectionHeader ({ tag, title, description, highlight }: SectionHe
     };
 
     return (
-        <div className="mb-16">
-            <motion.div
-                initial={{ opacity: 0, y: 10 }}
+        <div className="mb-14 md:mb-20">
+            <motion.p
+                initial={{ opacity: 0, y: 8 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
-                className="mb-6"
+                className="text-[11px] font-medium tracking-[0.25em] uppercase text-white/35 mb-5"
             >
-                <Badge variant="mono" className="text-[10px] tracking-widest uppercase">
-                    {tag}
-                </Badge>
-            </motion.div>
+                {tag}
+            </motion.p>
 
             <motion.h2
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                className="text-2xl md:text-4xl font-bold mb-8 max-w-3xl leading-tight"
+                transition={{ duration: 0.6, delay: 0.08 }}
+                className="text-3xl md:text-5xl lg:text-[3.25rem] font-semibold tracking-[-0.03em] leading-[1.1] mb-6 max-w-3xl"
             >
                 {renderTitle()}
             </motion.h2>
 
             <motion.p
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="text-lg text-foreground/80 max-w-3xl leading-relaxed text-balance"
+                transition={{ duration: 0.6, delay: 0.15 }}
+                className="text-base md:text-lg text-white/45 max-w-2xl leading-relaxed font-light"
             >
                 {description}
             </motion.p>
         </div>
     );
-};
+}

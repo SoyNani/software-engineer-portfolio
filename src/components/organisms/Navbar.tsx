@@ -6,20 +6,10 @@ import { navLinks } from "@/lib/navigation.config";
 import { Logo } from "@/components/atoms/Logo";
 import { NavLinks } from "@/components/molecules/NavLinks";
 import { MobileMenu } from "@/components/molecules/MobileMenu";
-import { useAuth } from "@/context/AuthContext";
-import { LoginModal } from "@/components/molecules/LoginModal";
-import { LogIn, LogOut } from "lucide-react";
 
-/**
- * Navbar organism component
- * Features: sticky positioning, scroll effects, responsive mobile menu
- * Accessibility: keyboard navigation, ARIA labels, focus management
- */
 export const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
     const [mobileOpen, setMobileOpen] = useState(false);
-    const [loginModalOpen, setLoginModalOpen] = useState(false);
-    const { isLoggedIn, logout } = useAuth();
 
     useEffect(() => {
         const onScroll = () => setScrolled(window.scrollY > 20);
@@ -27,33 +17,26 @@ export const Navbar = () => {
         return () => window.removeEventListener("scroll", onScroll);
     }, []);
 
-    // Memoize close handler to prevent unnecessary re-renders
     const handleMobileClose = useCallback(() => setMobileOpen(false), []);
     const handleMobileToggle = useCallback(() => setMobileOpen((prev) => !prev), []);
 
     return (
         <nav
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-                ? "bg-background/80 backdrop-blur-xl border-b border-border shadow-sm"
-                : "bg-transparent"
-                }`}
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+                scrolled
+                    ? "bg-background/70 backdrop-blur-2xl border-b border-white/5"
+                    : "bg-transparent"
+            }`}
             role="navigation"
             aria-label="Main navigation"
         >
-            <div className="container mx-auto flex items-center justify-between h-16 px-6">
+            <div className="container mx-auto flex items-center justify-between h-16 md:h-20 px-6 md:px-10 max-w-7xl">
                 <Logo />
 
-                {/* Desktop Navigation */}
-                <NavLinks
-                    links={navLinks}
-                    onLoginClick={() => setLoginModalOpen(true)}
-                    isLoggedIn={isLoggedIn}
-                    onLogout={logout}
-                />
+                <NavLinks links={navLinks} />
 
-                {/* Mobile toggle */}
                 <button
-                    className="md:hidden text-foreground hover:text-primary transition-colors"
+                    className="md:hidden text-foreground/80 hover:text-foreground transition-colors p-2"
                     onClick={handleMobileToggle}
                     aria-label={mobileOpen ? "Close menu" : "Open menu"}
                     aria-expanded={mobileOpen}
@@ -63,25 +46,13 @@ export const Navbar = () => {
                 </button>
             </div>
 
-            {/* Mobile menu */}
             <div id="mobile-menu">
                 <MobileMenu
                     isOpen={mobileOpen}
                     onClose={handleMobileClose}
                     links={navLinks}
-                    onLoginClick={() => {
-                        handleMobileClose();
-                        setLoginModalOpen(true);
-                    }}
-                    isLoggedIn={isLoggedIn}
-                    onLogout={logout}
                 />
             </div>
-
-            <LoginModal
-                isOpen={loginModalOpen}
-                onClose={() => setLoginModalOpen(false)}
-            />
         </nav>
     );
 };

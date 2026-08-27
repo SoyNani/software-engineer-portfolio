@@ -2,16 +2,6 @@
 
 import { motion } from "framer-motion";
 import { ExternalLink, Github, Star } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import {
-    Card,
-    CardContent,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-    CardAction,
-} from "@/components/ui/card";
 import { Project } from "@/types/projects.types";
 import { cn } from "@/lib/utils";
 
@@ -28,99 +18,74 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            whileHover={{ y: -5 }}
-            className={cn(
-                "group h-full",
-                isFeatured ? "md:col-span-2" : "",
-                className
-            )}
+            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            className={cn("group h-full", isFeatured ? "md:col-span-2" : "", className)}
         >
-            <Card className="h-full bg-[#0D0D12] border-white/5 rounded-3xl overflow-hidden transition-all duration-300 hover:border-primary/40 hover:shadow-[0_0_30px_-5px_rgba(145,80,226,0.3)] group-hover:shadow-[0_0_30px_-5px_rgba(145,80,226,0.3)] flex flex-col p-0 gap-0">
-                {/* Visual Header / Image Area */}
-                <CardHeader className="p-0 space-y-0">
-                    <div className="aspect-video md:aspect-auto md:h-72 bg-[#16161D] relative overflow-hidden flex items-center justify-center">
-                        {image ? (
-                            <>
-                                <img src={image} alt={title} className="absolute inset-0 w-full h-full object-cover" />
-                                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/40" />
-                                <div className="text-white/10 font-mono text-sm tracking-widest uppercase select-none z-10">
-                                    {title}
-                                </div>
-                            </>
-                        ) : (
-                            <div className="text-white/10 font-mono text-sm tracking-widest uppercase select-none">
-                                {title}
-                            </div>
-                        )}
+            <div className="h-full rounded-2xl border border-white/6 bg-white/[0.02] overflow-hidden transition-all duration-400 hover:border-primary/25 hover:bg-white/[0.035] flex flex-col">
+                <div className="aspect-video md:aspect-auto md:h-64 bg-[#121216] relative overflow-hidden">
+                    {image ? (
+                        <>
+                            <img src={image} alt={title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                        </>
+                    ) : (
+                        <div className="absolute inset-0 flex items-center justify-center text-white/10 font-mono text-sm tracking-widest uppercase">
+                            {title}
+                        </div>
+                    )}
+                    {category && (
+                        <span className="absolute top-4 right-4 z-10 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary/20 text-primary border border-primary/30 backdrop-blur-md text-[10px] uppercase font-semibold tracking-wider">
+                            <Star size={11} fill="currentColor" />
+                            {category}
+                        </span>
+                    )}
+                </div>
 
-                        {category && (
-                            <CardAction className="absolute top-4 right-4 p-0 z-20">
-                                <Badge
-                                    variant="mono"
-                                    className="bg-primary/20 text-primary border-primary/30 backdrop-blur-md gap-1.5 px-3 py-1.5 h-auto text-[10px] uppercase font-bold tracking-wider"
-                                >
-                                    <Star size={12} fill="currentColor" />
-                                    {category}
-                                </Badge>
-                            </CardAction>
-                        )}
-                    </div>
-                </CardHeader>
-
-                <CardContent className="p-8 md:p-10 pb-0 md:pb-0 flex-1 flex flex-col">
-                    <CardTitle className="text-xl md:text-2xl font-bold mb-4 group-hover:text-primary transition-colors leading-tight">
+                <div className="p-7 md:p-8 flex-1 flex flex-col">
+                    <h3 className="text-xl md:text-2xl font-semibold mb-3 tracking-tight text-white group-hover:text-primary transition-colors">
                         {title}
-                    </CardTitle>
-                    <p className="text-muted-foreground leading-relaxed mb-6 max-w-2xl text-[15px]">
+                    </h3>
+                    <p className="text-white/45 leading-relaxed mb-5 text-[15px] font-light flex-1">
                         {description}
                     </p>
 
-                    {/* Tags */}
-                    <div className="flex flex-wrap gap-2 mb-4">
+                    <div className="flex flex-wrap gap-2 mb-6">
                         {tags.map((tag) => (
-                            <Badge
+                            <span
                                 key={tag}
-                                variant="outline"
-                                className="bg-[#1C1C21] text-white/70 border-white/5 hover:bg-[#25252b] hover:text-white transition-colors"
+                                className="text-xs text-white/50 bg-white/[0.04] border border-white/6 px-2.5 py-1 rounded-md"
                             >
                                 {tag}
-                            </Badge>
+                            </span>
                         ))}
                     </div>
-                </CardContent>
 
-                <CardFooter className="p-8 md:p-10 pt-0 mt-[2px] flex items-center gap-6">
-                    {demoUrl && (
-                        <Button
-                            variant="link"
-                            size="xs"
-                            className="p-0 h-auto text-primary font-bold text-[14px] hover:no-underline group/link"
-                            asChild
-                        >
-                            <a href={demoUrl} target="_blank" rel="noopener noreferrer">
+                    <div className="flex items-center gap-5">
+                        {demoUrl && (
+                            <a
+                                href={demoUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:opacity-80 transition-opacity"
+                            >
                                 Ver demo
-                                <ExternalLink size={16} className="ml-1 transition-transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" />
+                                <ExternalLink size={14} />
                             </a>
-                        </Button>
-                    )}
-                    {githubUrl && (
-                        <Button
-                            variant="link"
-                            size="xs"
-                            className="p-0 h-auto text-foreground/50 font-bold text-[14px] hover:text-foreground hover:no-underline"
-                            asChild
-                        >
-                            <a href={githubUrl} target="_blank" rel="noopener noreferrer">
+                        )}
+                        {githubUrl && (
+                            <a
+                                href={githubUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-1.5 text-sm font-medium text-white/40 hover:text-white transition-colors"
+                            >
                                 Código
-                                <Github size={16} className="ml-1.5" />
+                                <Github size={14} />
                             </a>
-                        </Button>
-                    )}
-                </CardFooter>
-
-                <div className="absolute inset-0 pointer-events-none bg-linear-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-            </Card>
+                        )}
+                    </div>
+                </div>
+            </div>
         </motion.div>
     );
 }
