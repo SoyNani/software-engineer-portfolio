@@ -1,67 +1,76 @@
 "use client";
 
-import { Github, Linkedin, MessageCircle, Mail, Lock } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
-import { SocialIcon } from "@/components/atoms/SocialIcon";
-import { useAuth } from "@/context/AuthContext";
+import { Github, Linkedin, MessageCircle, Mail } from "lucide-react";
+import { motion } from "framer-motion";
 
 export const ContactCard = () => {
-    const { isLoggedIn } = useAuth();
     const phoneNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "";
-    const email = process.env.NEXT_PUBLIC_EMAIL || "";
-    const message = encodeURIComponent("Hola Laura nos gusto tú perfil, quiero saber más de ti");
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+    const email = process.env.NEXT_PUBLIC_EMAIL || "soyynanii@gmail.com";
+    const message = encodeURIComponent("Hola Laura, me gustó tu perfil. Quiero saber más de ti.");
+    const whatsappUrl = phoneNumber ? `https://wa.me/${phoneNumber}?text=${message}` : "#";
     const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}`;
 
     return (
-        <Card className="w-full mx-auto bg-card backdrop-blur-sm border-border/50 py-12 px-6 flex flex-col items-center text-center gap-12 transition-all duration-300 hover:border-primary/40 hover:shadow-[0_0_30px_-5px_rgba(145,80,226,0.3)]">
-            <CardContent className="space-y-4 p-0">
-                <h2 className="text-4xl md:text-5xl font-bold tracking-tight mt-4">
-                    Construyamos algo <span className="gradient-text">juntos</span>
-                </h2>
-                <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                    ¿Tienes un proyecto en mente? Me encantaría saber más sobre
-                    tu idea y cómo puedo ayudar a llevarla al siguiente nivel.
-                </p>
-                {!isLoggedIn && (
-                    <div className="flex flex-col items-center justify-center gap-2 text-primary/80 bg-primary/5 border border-primary/20 py-4 px-6 rounded-2xl max-w-xl mx-auto mt-6">
-                        <div className="flex items-center gap-2">
-                            <Lock size={14} />
-                            <span className="text-sm font-semibold uppercase tracking-wider">Acceso Restringido</span>
-                        </div>
-                        <p className="text-sm text-muted-foreground leading-relaxed italic">
-                            "No dudes en escribirme para solicitar las credenciales de acceso y que puedas ver todo sobre mi perfil."
-                        </p>
-                    </div>
-                )}
-            </CardContent>
+        <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            className="relative w-full mx-auto text-center py-16 md:py-24"
+        >
+            <p className="text-[11px] font-medium tracking-[0.25em] uppercase text-white/30 mb-6">
+                Contacto
+            </p>
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-semibold tracking-[-0.03em] leading-[1.05] mb-6">
+                Construyamos algo
+                <br />
+                <span className="gradient-text">juntos</span>
+            </h2>
+            <p className="text-white/45 text-base md:text-lg max-w-lg mx-auto mb-12 font-light leading-relaxed">
+                ¿Tienes un proyecto en mente? Me encantaría saber más sobre
+                tu idea y cómo puedo ayudar a llevarla al siguiente nivel.
+            </p>
 
-            <div className="flex items-center justify-center flex-wrap gap-8">
-                {isLoggedIn && (
-                    <>
-                        <SocialIcon
-                            href={gmailUrl}
-                            icon={Mail}
-                            label="Email"
-                        />
-                        <SocialIcon
-                            href={whatsappUrl}
-                            icon={MessageCircle}
-                            label="WhatsApp"
-                        />
-                    </>
+            <div className="flex items-center justify-center flex-wrap gap-3 md:gap-4">
+                <a
+                    href={gmailUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/10 text-sm text-white/70 hover:text-white hover:border-white/25 transition-all duration-300"
+                >
+                    <Mail size={16} strokeWidth={1.5} />
+                    Email
+                </a>
+                {phoneNumber && (
+                    <a
+                        href={whatsappUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/10 text-sm text-white/70 hover:text-white hover:border-white/25 transition-all duration-300"
+                    >
+                        <MessageCircle size={16} strokeWidth={1.5} />
+                        WhatsApp
+                    </a>
                 )}
-                <SocialIcon
+                <a
                     href="https://www.linkedin.com/in/laura-daniela-lópez-jiménez"
-                    icon={Linkedin}
-                    label="LinkedIn"
-                />
-                <SocialIcon
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/10 text-sm text-white/70 hover:text-white hover:border-white/25 transition-all duration-300"
+                >
+                    <Linkedin size={16} strokeWidth={1.5} />
+                    LinkedIn
+                </a>
+                <a
                     href="https://github.com/SoyNani"
-                    icon={Github}
-                    label="GitHub"
-                />
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/10 text-sm text-white/70 hover:text-white hover:border-white/25 transition-all duration-300"
+                >
+                    <Github size={16} strokeWidth={1.5} />
+                    GitHub
+                </a>
             </div>
-        </Card>
+        </motion.div>
     );
 };
