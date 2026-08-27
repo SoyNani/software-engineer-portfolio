@@ -7,26 +7,20 @@ import { ContactSection } from "@/components/organisms/ContactSection";
 import { Footer } from "@/components/organisms/Footer";
 import { ExperienceSection } from "@/components/organisms/ExperienceSection";
 import { EducationSection } from "@/components/organisms/EducationSection";
-import { ProtectedArea } from "@/components/molecules/ProtectedArea";
 
 export default function Home() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background">
       <Navbar />
       <main>
         <HeroSection />
         <AboutSection />
-        <ProtectedArea>
-          <ExperienceSection />
-        </ProtectedArea>
-        <ProjectsSection />      
-        <ProtectedArea>
-          <EducationSection />
-        </ProtectedArea>
+        <ExperienceSection />
+        <ProjectsSection />
+        <EducationSection />
         <ProcessSection />
         <ContactSection />
       </main>
-
       <Footer />
     </div>
   );

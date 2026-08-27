@@ -13,14 +13,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Laura's Portfolio",
-  description: "Creado por Laura",
+  title: "Laura López — Software Developer",
+  description:
+    "Desarrolladora de software con enfoque en producto, liderazgo y soluciones digitales de alto impacto. Portfolio de Laura López.",
   icons: {
-    icon: '/favicon.svg',
+    icon: "/favicon.svg",
   },
 };
-
-import { AuthProvider } from "@/context/AuthContext";
 
 export default function RootLayout({
   children,
@@ -28,14 +27,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" style={{ backgroundColor: '#0D0E12' }}>
+    <html lang="es" className="dark" style={{ backgroundColor: "#0a0a0b" }}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
-        style={{ backgroundColor: '#0D0E12', color: '#e8e9ec' }}
+        style={{ backgroundColor: "#0a0a0b", color: "#e8e9ec" }}
       >
-        <AuthProvider>
-          {children}
-        </AuthProvider>
+        {children}
       </body>
     </html>
   );
