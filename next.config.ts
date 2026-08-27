@@ -1,14 +1,15 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  async rewrites() {
-    return [
+  transpilePackages: ["three"],
+  images: {
+    remotePatterns: [
       {
-        source: '/dashboard/:path*',
-        destination: 'http://localhost:3001/dashboard/:path*',
+        protocol: "https",
+        hostname: "connection-with-nature.s3.us-east-1.amazonaws.com",
       },
-    ];
+    ],
   },
 };
 
-module.exports = nextConfig;
+export default nextConfig;
