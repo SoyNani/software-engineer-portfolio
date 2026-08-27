@@ -86,10 +86,12 @@ function ParticleField() {
       <bufferGeometry>
         <bufferAttribute
           attach="attributes-position"
-          args={[positions, 3]}
+          count={positions.length / 3}
+          array={positions}
+          itemSize={3}
         />
       </bufferGeometry>
-      <pointsMaterial size={0.035} color="#ffffff" transparent opacity={0.55} />
+      <pointsMaterial size={0.035} color="#ffffff" transparent opacity={0.55} sizeAttenuation />
     </points>
   );
 }
@@ -97,6 +99,7 @@ function ParticleField() {
 function SceneContent({ accent }: { accent: string }) {
   return (
     <>
+      <color attach="background" args={["#050507"]} />
       <ambientLight intensity={0.35} />
       <pointLight position={[4, 3, 5]} intensity={1.4} color={accent} />
       <pointLight position={[-4, -2, -3]} intensity={0.8} color="#ff2d95" />
