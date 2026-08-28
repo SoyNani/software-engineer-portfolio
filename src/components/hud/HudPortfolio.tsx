@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { Github, Linkedin, ArrowUpRight, ExternalLink } from 'lucide-react'
 import HudFrame from './HudFrame'
 import PageDivider from './PageDivider'
+import HeroAvatar from './HeroAvatar'
 import { projects } from '@/data/projects.content'
 import { protectedContent } from '@/data/protected.content'
 
@@ -33,7 +34,7 @@ export default function HudPortfolio() {
 
       <div className="content-scroll">
         <div className="page-shell">
-          {/* HERO — sin section-band */}
+          {/* HERO */}
           <section
             className="section"
             style={{
@@ -50,57 +51,68 @@ export default function HudPortfolio() {
               <span className="font-mono text-[10px] tracking-widest text-[#6a6a78]">0014</span>
             </div>
 
-            <div className="w-full py-12 md:py-16">
-              <motion.p
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="font-mono text-[11px] tracking-[0.28em] uppercase text-[#a8b0c4] mb-5"
-              >
-                Software · Producto · Liderazgo
-              </motion.p>
-              <motion.h1
-                initial={{ opacity: 0, y: 24 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.08 }}
-                className="text-[clamp(2.75rem,8vw,5.5rem)] font-semibold tracking-[-0.04em] leading-[0.92] text-white"
-                style={sans}
-              >
-                Laura
-                <br />
-                <span className="bg-gradient-to-r from-[#ff6bb5] via-[#9b6dff] to-[#5b8cff] bg-clip-text text-transparent">
-                  López
-                </span>
-              </motion.h1>
-              <motion.p
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.16 }}
-                className="mt-6 max-w-lg text-base md:text-lg text-[#a8b0c4] font-light leading-relaxed"
-                style={sans}
-              >
-                Desarrollo soluciones digitales con enfoque estratégico.
-                Tecnología que conecta experiencia y valor real.
-              </motion.p>
+            <div className="hero-grid py-10 md:py-14">
+              <div className="w-full">
+                <motion.p
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="font-mono text-[11px] tracking-[0.28em] uppercase text-[#a8b0c4] mb-5"
+                >
+                  Software · Producto · Liderazgo
+                </motion.p>
+                <motion.h1
+                  initial={{ opacity: 0, y: 24 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.08 }}
+                  className="text-[clamp(2.75rem,8vw,5.5rem)] font-semibold tracking-[-0.04em] leading-[0.92] text-white"
+                  style={sans}
+                >
+                  Laura
+                  <br />
+                  <span className="bg-gradient-to-r from-[#ff6bb5] via-[#9b6dff] to-[#5b8cff] bg-clip-text text-transparent">
+                    López
+                  </span>
+                </motion.h1>
+                <motion.p
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.16 }}
+                  className="mt-6 max-w-lg text-base md:text-lg text-[#a8b0c4] font-light leading-relaxed"
+                  style={sans}
+                >
+                  Desarrollo soluciones digitales con enfoque estratégico.
+                  Tecnología que conecta experiencia y valor real.
+                </motion.p>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.28 }}
+                  className="mt-10 flex flex-wrap gap-3"
+                >
+                  <a
+                    href="#work"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium text-black transition-opacity hover:opacity-90"
+                    style={{ background: 'linear-gradient(135deg, #ff6bb5, #9b6dff)' }}
+                  >
+                    Trayectoria
+                    <ArrowUpRight size={15} />
+                  </a>
+                  <a
+                    href="#projects"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-[#9b6dff]/50 text-[#c4b0ff] text-sm hover:border-[#9b6dff] transition-colors"
+                  >
+                    Proyectos
+                  </a>
+                </motion.div>
+              </div>
+
               <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.28 }}
-                className="mt-10 flex flex-wrap gap-3"
+                initial={{ opacity: 0, scale: 0.92 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.2, duration: 0.5 }}
+                className="flex justify-center lg:justify-end"
               >
-                <a
-                  href="#work"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium text-black transition-opacity hover:opacity-90"
-                  style={{ background: 'linear-gradient(135deg, #ff6bb5, #9b6dff)' }}
-                >
-                  Trayectoria
-                  <ArrowUpRight size={15} />
-                </a>
-                <a
-                  href="#projects"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-[#9b6dff]/50 text-[#c4b0ff] text-sm hover:border-[#9b6dff] transition-colors"
-                >
-                  Proyectos
-                </a>
+                <HeroAvatar />
               </motion.div>
             </div>
 
@@ -145,7 +157,7 @@ export default function HudPortfolio() {
 
           <PageDivider />
 
-          {/* MISSION / ABOUT — sin section-band */}
+          {/* MISSION */}
           <section className="section" id="about">
             <div className="grid md:grid-cols-12 gap-10 md:gap-12">
               <div className="md:col-span-4">
@@ -223,7 +235,6 @@ export default function HudPortfolio() {
 
           <PageDivider />
 
-          {/* EXPERIENCE — timeline + banda oscura */}
           <div className="section-band section-band--work">
             <section className="section" id="work">
               <p className="font-mono text-[10px] tracking-[0.25em] uppercase accent-orange">
@@ -349,7 +360,6 @@ export default function HudPortfolio() {
 
           <PageDivider />
 
-          {/* PROJECTS — sin section-band */}
           <section className="section" id="projects">
             <p className="font-mono text-[10px] tracking-[0.25em] uppercase accent-blue">
               04 // Artefactos
@@ -443,7 +453,6 @@ export default function HudPortfolio() {
 
           <PageDivider />
 
-          {/* CONTACT CTA — sí mantiene section-band */}
           <div className="section-band section-band--contact">
             <section
               className="section"
