@@ -23,10 +23,13 @@ export const protectedContent = {
             period: "Junio 2025 - Actualidad",
             location: "Colombia",
             isActual: true,
+            description:
+                "Enfoque principal en aplicaciones móviles multiplataforma con Flutter, arquitectura limpia y código mantenible.",
             achievements: [
-                "Lideré la migración del sitio web corporativo de .NET a Next.js implementando arquitectura de micro-frontends con Tailwind CSS, mejorando la modularidad y escalabilidad del proyecto.",
-                "Diseñé y desarrollé el sistema de diseño completo de la nueva plataforma en Figma, estableciendo guías de estilo y componentes reutilizables para garantizar consistencia visual.",
-                "Desarrollo de aplicaciones móviles multiplataforma en Flutter, participando activamente en la creación y mantenimiento de features."
+                "Desarrollo de apps móviles multiplataforma en Flutter aplicando arquitectura limpia y modular, principios SOLID y patrones de diseño, lo que facilitó el mantenimiento y la escalabilidad del producto.",
+                "Entrega de features móviles end-to-end con separación clara de capas (UI, dominio, datos), reduciendo acoplamiento y acelerando la incorporación de nuevas funcionalidades.",
+                "Migración del sitio corporativo de .NET a Next.js con micro-frontends y Tailwind, logrando una base más modular y preparada para escalar.",
+                "Definición del sistema de diseño en Figma con componentes reutilizables, alineando diseño y desarrollo y mejorando la consistencia visual del producto."
             ]
         },
         {
@@ -36,35 +39,35 @@ export const protectedContent = {
             location: "Colombia (Remoto)",
             isActual: true,
             achievements: [
-                "Desarrollo, mantenimiento y evolución de sitios web en PHP y WordPress, incluyendo personalización de funcionalidades, optimización de rendimiento y corrección de incidencias.",
-                "Administración y mantenimiento de un sitio WordPress alojado en AWS, gestionando configuraciones de servidor, despliegues y respaldos.",
-                "Implementación de bases de datos relacionales en MySQL, manejo de consultas SQL, relaciones entre entidades y optimización de datos.",
-                "Integración frontend con HTML, CSS, JavaScript y Bootstrap responsivo."
+                "Estabilización y evolución de sitios PHP/WordPress: menos incidencias recurrentes y tiempos de respuesta más predecibles ante cambios de negocio.",
+                "Operación de un WordPress en AWS (servidor, despliegues y respaldos), reduciendo riesgo de downtime y facilitando recuperaciones seguras.",
+                "Modelado y optimización de datos en MySQL con consultas y relaciones bien definidas, mejorando integridad y rendimiento de las operaciones críticas.",
+                "Interfaces responsivas con HTML, CSS, JavaScript y Bootstrap que elevan la usabilidad en móvil y escritorio."
             ]
         },
         {
             company: "Pragma S.A",
             role: "Aprendiz de Desarrollo",
-            period: "Nov 2024– Mayo 2025",
+            period: "Nov 2024 – Mayo 2025",
             location: "Colombia (Remoto)",
             isActual: false,
             achievements: [
-                "Desarrollé aplicaciones web utilizando React, TypeScript y Java en entornos ágiles bajo metodología Scrum.",
-                "Implementé infraestructura cloud en AWS (CloudFront, S3, Lambda, IAM) para optimizar el despliegue y rendimiento de aplicaciones.",
-                "Gestioné control de versiones con Git y desarrollé pruebas unitarias para garantizar calidad del código.",
-                "Colaboré en equipos multidisciplinarios participando activamente en ceremonias Scrum (dailys, retrospectivas,planificaciones)."
+                "Entrega de módulos web en React, TypeScript y Java dentro de sprints Scrum, con criterios de aceptación claros y entregas a tiempo.",
+                "Despliegues más rápidos y estables al implementar infraestructura en AWS (CloudFront, S3, Lambda, IAM) orientada a rendimiento y seguridad.",
+                "Mayor confiabilidad del código mediante Git flow y pruebas unitarias que atraparon regresiones antes de producción.",
+                "Colaboración efectiva en equipo multidisciplinario (dailys, planificaciones y retrospectivas), mejorando la sincronización y la calidad de las entregas."
             ]
         },
         {
             company: "Armagica",
             role: "Desarrolladora de Software",
-            period: "Abr 2023– Nov 2024",
+            period: "Abr 2023 – Nov 2024",
             location: "Colombia (Remoto)",
             isActual: false,
             achievements: [
-                "Implementé experiencias interactivas de Realidad Aumentada utilizando JavaScript, MindAR y Three.js para proyectos innovadores.",
-                "Optimicé módulos de rendimiento para aplicaciones de Realidad Virtual y Aumentada, mejorando la experiencia de usuario.",
-                "Desarrollé soluciones con Unity y WebXR para crear experiencias inmersivas multiplataforma."
+                "Experiencias de Realidad Aumentada interactivas con JavaScript, MindAR y Three.js que elevan el engagement en proyectos innovadores.",
+                "Optimización de módulos de rendimiento en VR/AR, logrando una experiencia de usuario más fluida y estable.",
+                "Soluciones inmersivas multiplataforma con Unity y WebXR, ampliando el alcance de las experiencias más allá de un solo dispositivo."
             ]
         }
     ] as ExperienceType[],
