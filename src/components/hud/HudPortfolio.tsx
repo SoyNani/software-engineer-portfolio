@@ -26,8 +26,7 @@ const sans = { fontFamily: 'var(--font-geist-sans), system-ui, sans-serif' } as 
 const expColors = ['#ff6bb5', '#9b6dff', '#5b8cff', '#ff9f43'] as const
 
 export default function HudPortfolio() {
-  const email = process.env.NEXT_PUBLIC_EMAIL || 'soyynanii@gmail.com'
-
+  const email = process.env.NEXT_PUBLIC_EMAIL 
   return (
     <>
       <HudFrame />

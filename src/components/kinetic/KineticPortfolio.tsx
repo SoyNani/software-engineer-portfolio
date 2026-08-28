@@ -434,7 +434,7 @@ export function KineticPortfolio() {
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-3">
             <a
-              href={`https://mail.google.com/mail/?view=cm&fs=1&to=${process.env.NEXT_PUBLIC_EMAIL || "soyynanii@gmail.com"}`}
+              href={`https://mail.google.com/mail/?view=cm&fs=1&to=${process.env.NEXT_PUBLIC_EMAIL}`}
               target="_blank"
               rel="noreferrer"
               className="px-6 py-3 rounded-full text-sm font-medium text-black"
