@@ -1,5 +1,5 @@
-import { KineticPortfolio } from "@/components/kinetic/KineticPortfolio";
+import HudPortfolio from "@/components/hud/HudPortfolio";
 
 export default function Home() {
-  return <KineticPortfolio />;
+  return <HudPortfolio />;
 }

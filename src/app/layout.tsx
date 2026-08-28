@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Laura López — Kinetic Portfolio",
+  title: "Laura López — NANI // Mission",
   description:
-    "Desarrolladora de software. Experiencias digitales, producto y liderazgo. Portfolio experimental.",
+    "Desarrolladora de software. Portfolio con interfaz HUD y enfoque de producto.",
 };
 
 export default function RootLayout({
