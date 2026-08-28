@@ -1,136 +1,282 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Space+Mono:wght@400;700&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 
 :root {
-  --deep-blue: #0b1224;
-  --deep-blue-mid: #111a32;
+  --bg: #0b1224;
+  --frame-dark: #000000;
+  --frame-accent: #121212;
+  --text-on-page: #e8eaf0;
+  --text-muted-page: #9aa3b8;
   --silver: #c0c0c8;
-  --silver-dim: #8a8a94;
-  --mask-black: #000000;
-  --frame-bar: 40px;
-  --frame-side: 52px;
+  --silver-mid: #8a8a94;
+  --silver-dim: #5a5a64;
+  --frame-thickness: 48px;
+  --notch-w: 320px;
+  --notch-h: 32px;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+body {
+  background: var(--frame-dark) !important;
+  color: var(--text-on-page);
+  font-family: 'Share Tech Mono', var(--font-geist-mono), monospace;
+  overflow: hidden;
+  height: 100%;
+  cursor: auto;
+}
+
+/* ─── SCROLLABLE CONTENT WRAPPER ─── */
+.content-scroll {
+  position: fixed;
+  inset: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 1;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.content-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* ─── FIXED HUD FRAME OVERLAY ─── */
+.hud-frame {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+}
+
+/* ── TOP FRAME BAR ── */
+.frame-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--frame-thickness);
+  background: var(--frame-dark);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+}
+
+/* ── BOTTOM FRAME BAR ── */
+.frame-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: var(--frame-thickness);
+  background: var(--frame-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 24px;
+}
+
+/* ── LEFT FRAME BAR ── */
+.frame-left {
+  position: absolute;
+  top: var(--frame-thickness);
+  bottom: var(--frame-thickness);
+  left: 0;
+  width: var(--frame-thickness);
+  background: var(--frame-dark);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+/* ── RIGHT FRAME BAR ── */
+.frame-right {
+  position: absolute;
+  top: var(--frame-thickness);
+  bottom: var(--frame-thickness);
+  right: 0;
+  width: var(--frame-thickness);
+  background: var(--frame-dark);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── CORNER PIECES ── */
+.corner {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-color: var(--silver);
+  border-style: solid;
+}
+.corner-tl {
+  top: calc(var(--frame-thickness) - 8px);
+  left: calc(var(--frame-thickness) - 8px);
+  border-width: 2px 0 0 2px;
+}
+.corner-tr {
+  top: calc(var(--frame-thickness) - 8px);
+  right: calc(var(--frame-thickness) - 8px);
+  border-width: 2px 2px 0 0;
+}
+.corner-bl {
+  bottom: calc(var(--frame-thickness) - 8px);
+  left: calc(var(--frame-thickness) - 8px);
+  border-width: 0 0 2px 2px;
+}
+.corner-br {
+  bottom: calc(var(--frame-thickness) - 8px);
+  right: calc(var(--frame-thickness) - 8px);
+  border-width: 0 2px 2px 0;
+}
+
+/* ── TOP NOTCH ── */
+.frame-top-notch {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: var(--notch-w);
+  height: var(--frame-thickness);
+  background: var(--frame-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── HUD TEXT ── */
+.hud-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9px;
+  color: var(--silver-mid);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.hud-title {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  color: var(--silver);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.hud-menu {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  color: var(--silver);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.hud-status {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9px;
+  color: var(--silver-mid);
+  letter-spacing: 0.1em;
+  display: flex;
+  align-items: center;
+}
+
+.coords-display {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  color: var(--silver-mid);
+  letter-spacing: 0.2em;
+}
+
+/* ── SIDE TICKS ── */
+.side-ticks {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.tick {
+  width: 12px;
+  height: 1px;
+  background: var(--silver-dim);
+}
+
+.tick-lg {
+  width: 20px;
+  height: 1px;
+  background: var(--silver-mid);
+}
+
+/* ── VERTICAL TEXT ── */
+.vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9px;
+  color: var(--silver-dim);
+  letter-spacing: 0.2em;
+}
+
+/* ─── PAGE SECTIONS (sit inside the mask hole) ─── */
+.page {
+  background: var(--bg);
+  margin: var(--frame-thickness) var(--frame-thickness);
+  min-height: calc(100vh - calc(var(--frame-thickness) * 2));
+  position: relative;
+  overflow: hidden;
+  color: var(--text-on-page);
+}
+
+/* Dot grid background only */
+.page::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    circle,
+    rgba(160, 180, 220, 0.28) 1px,
+    transparent 1px
+  );
+  background-size: 22px 22px;
+  opacity: 1;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.page > * {
+  position: relative;
+  z-index: 1;
+}
+
+.page-dark {
+  background: #080c18;
+}
+
+.page-dark::before {
+  background-image: radial-gradient(
+    circle,
+    rgba(140, 160, 200, 0.2) 1px,
+    transparent 1px
+  );
 }
 
 @media (max-width: 768px) {
   :root {
-    --frame-bar: 34px;
-    --frame-side: 28px;
-  }
-}
-
-html,
-body {
-  height: 100%;
-  margin: 0;
-  background: var(--deep-blue);
-  color: #e8eaf0;
-  font-family: var(--font-geist-sans), system-ui, sans-serif;
-  overflow: hidden;
-  cursor: auto;
-}
-
-.font-mono {
-  font-family: var(--font-geist-mono), ui-monospace, monospace;
-}
-
-::selection {
-  background: #7b8cff;
-  color: #0b1224;
-}
-
-/* Content area inside the HUD mask */
-.content-scroll {
-  position: fixed;
-  top: var(--frame-bar);
-  left: var(--frame-side);
-  right: var(--frame-side);
-  bottom: var(--frame-bar);
-  overflow-x: hidden;
-  overflow-y: auto;
-  z-index: 1;
-  -webkit-overflow-scrolling: touch;
-  scroll-behavior: smooth;
-  background-color: var(--deep-blue);
-  background-image: radial-gradient(
-    rgba(160, 180, 220, 0.18) 1px,
-    transparent 1px
-  );
-  background-size: 18px 18px;
-}
-
-.content-scroll::-webkit-scrollbar {
-  width: 5px;
-}
-.content-scroll::-webkit-scrollbar-track {
-  background: transparent;
-}
-.content-scroll::-webkit-scrollbar-thumb {
-  background: #3a4560;
-  border-radius: 3px;
-}
-
-/* Liquid ether panels */
-.liquid-panel {
-  position: relative;
-  border-radius: 6px;
-  overflow: hidden;
-  border: 1px solid rgba(192, 192, 200, 0.25);
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3);
-}
-
-.liquid-bg {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 80% 60% at 18% 38%, rgba(255, 170, 210, 0.95), transparent 55%),
-    radial-gradient(ellipse 70% 50% at 78% 28%, rgba(190, 150, 255, 0.9), transparent 50%),
-    radial-gradient(ellipse 60% 70% at 48% 82%, rgba(255, 190, 140, 0.75), transparent 55%),
-    radial-gradient(ellipse 50% 40% at 92% 68%, rgba(140, 190, 255, 0.7), transparent 50%),
-    linear-gradient(135deg, #e4d0f5 0%, #cfc0ec 30%, #f0d4e4 65%, #c0d4f4 100%);
-  background-size: 200% 200%;
-  animation: liquid-drift 18s ease-in-out infinite;
-}
-
-.liquid-bg::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(
-    rgba(0, 0, 0, 0.14) 1px,
-    transparent 1px
-  );
-  background-size: 16px 16px;
-  opacity: 0.55;
-  pointer-events: none;
-}
-
-@keyframes liquid-drift {
-  0% {
-    background-position: 0% 40%;
-  }
-  50% {
-    background-position: 100% 60%;
-  }
-  100% {
-    background-position: 0% 40%;
-  }
-}
-
-.hud-section-label {
-  font-family: var(--font-geist-mono), ui-monospace, monospace;
-  font-size: 10px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: rgba(0, 0, 0, 0.5);
-}
-
-.section-dark {
-  background: transparent;
-  color: #e8eaf0;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .liquid-bg {
-    animation: none;
+    --frame-thickness: 32px;
+    --notch-w: 200px;
   }
 }
