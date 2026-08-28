@@ -33,201 +33,197 @@ export default function HudPortfolio() {
 
       <div className="content-scroll">
         <div className="page-shell">
-          {/* HERO */}
-          <div className="section-band section-band--hero">
-            <section
-              className="section"
-              style={{
-                minHeight: 'calc(100vh - 96px)',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between',
-              }}
-            >
-              <div className="flex items-start justify-between gap-4 w-full">
-                <p className="font-mono text-[10px] tracking-[0.25em] uppercase accent-purple">
-                  01 // Inicio
-                </p>
-                <span className="font-mono text-[10px] tracking-widest text-[#6a6a78]">0014</span>
-              </div>
+          {/* HERO — sin section-band */}
+          <section
+            className="section"
+            style={{
+              minHeight: 'calc(100vh - 96px)',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+            }}
+          >
+            <div className="flex items-start justify-between gap-4 w-full">
+              <p className="font-mono text-[10px] tracking-[0.25em] uppercase accent-purple">
+                01 // Inicio
+              </p>
+              <span className="font-mono text-[10px] tracking-widest text-[#6a6a78]">0014</span>
+            </div>
 
-              <div className="w-full py-12 md:py-16">
-                <motion.p
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="font-mono text-[11px] tracking-[0.28em] uppercase text-[#a8b0c4] mb-5"
+            <div className="w-full py-12 md:py-16">
+              <motion.p
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="font-mono text-[11px] tracking-[0.28em] uppercase text-[#a8b0c4] mb-5"
+              >
+                Software · Producto · Liderazgo
+              </motion.p>
+              <motion.h1
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.08 }}
+                className="text-[clamp(2.75rem,8vw,5.5rem)] font-semibold tracking-[-0.04em] leading-[0.92] text-white"
+                style={sans}
+              >
+                Laura
+                <br />
+                <span className="bg-gradient-to-r from-[#ff6bb5] via-[#9b6dff] to-[#5b8cff] bg-clip-text text-transparent">
+                  López
+                </span>
+              </motion.h1>
+              <motion.p
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.16 }}
+                className="mt-6 max-w-lg text-base md:text-lg text-[#a8b0c4] font-light leading-relaxed"
+                style={sans}
+              >
+                Desarrollo soluciones digitales con enfoque estratégico.
+                Tecnología que conecta experiencia y valor real.
+              </motion.p>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.28 }}
+                className="mt-10 flex flex-wrap gap-3"
+              >
+                <a
+                  href="#work"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium text-black transition-opacity hover:opacity-90"
+                  style={{ background: 'linear-gradient(135deg, #ff6bb5, #9b6dff)' }}
                 >
-                  Software · Producto · Liderazgo
-                </motion.p>
-                <motion.h1
-                  initial={{ opacity: 0, y: 24 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.08 }}
-                  className="text-[clamp(2.75rem,8vw,5.5rem)] font-semibold tracking-[-0.04em] leading-[0.92] text-white"
-                  style={sans}
+                  Trayectoria
+                  <ArrowUpRight size={15} />
+                </a>
+                <a
+                  href="#projects"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-[#9b6dff]/50 text-[#c4b0ff] text-sm hover:border-[#9b6dff] transition-colors"
                 >
-                  Laura
-                  <br />
-                  <span className="bg-gradient-to-r from-[#ff6bb5] via-[#9b6dff] to-[#5b8cff] bg-clip-text text-transparent">
-                    López
+                  Proyectos
+                </a>
+              </motion.div>
+            </div>
+
+            <div className="flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-5 w-full">
+              <div className="flex flex-wrap gap-x-6 gap-y-2">
+                {[
+                  { t: 'Next.js', c: 'accent-blue' },
+                  { t: 'Flutter', c: 'accent-purple' },
+                  { t: 'AWS', c: 'accent-orange' },
+                  { t: 'Producto', c: 'accent-pink' },
+                ].map((item) => (
+                  <span
+                    key={item.t}
+                    className={`font-mono text-[10px] tracking-[0.2em] uppercase ${item.c}`}
+                  >
+                    {item.t}
                   </span>
-                </motion.h1>
-                <motion.p
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.16 }}
-                  className="mt-6 max-w-lg text-base md:text-lg text-[#a8b0c4] font-light leading-relaxed"
+                ))}
+              </div>
+              <div className="flex gap-4">
+                <a
+                  href="https://github.com/SoyNani"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-[#8a8a94] hover:text-white transition-colors"
+                  aria-label="GitHub"
+                >
+                  <Github size={18} strokeWidth={1.5} />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/laura-daniela-lópez-jiménez"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-[#8a8a94] hover:text-white transition-colors"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin size={18} strokeWidth={1.5} />
+                </a>
+              </div>
+            </div>
+          </section>
+
+          <PageDivider />
+
+          {/* MISSION / ABOUT — sin section-band */}
+          <section className="section" id="about">
+            <div className="grid md:grid-cols-12 gap-10 md:gap-12">
+              <div className="md:col-span-4">
+                <p className="font-mono text-[10px] tracking-[0.25em] uppercase accent-pink">
+                  02 // Mission
+                </p>
+                <h2
+                  className="mt-4 text-3xl md:text-4xl font-semibold tracking-tight leading-tight text-white"
                   style={sans}
                 >
-                  Desarrollo soluciones digitales con enfoque estratégico.
-                  Tecnología que conecta experiencia y valor real.
-                </motion.p>
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.28 }}
-                  className="mt-10 flex flex-wrap gap-3"
-                >
-                  <a
-                    href="#work"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium text-black transition-opacity hover:opacity-90"
-                    style={{ background: 'linear-gradient(135deg, #ff6bb5, #9b6dff)' }}
-                  >
-                    Trayectoria
-                    <ArrowUpRight size={15} />
-                  </a>
-                  <a
-                    href="#projects"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-[#9b6dff]/50 text-[#c4b0ff] text-sm hover:border-[#9b6dff] transition-colors"
-                  >
-                    Proyectos
-                  </a>
-                </motion.div>
+                  Mentalidad de
+                  <br />
+                  <span className="accent-purple">producto</span>
+                </h2>
               </div>
-
-              <div className="flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-5 w-full">
-                <div className="flex flex-wrap gap-x-6 gap-y-2">
+              <div className="md:col-span-8 space-y-5">
+                <p
+                  className="text-[#a8b0c4] font-light leading-relaxed text-base md:text-lg"
+                  style={sans}
+                >
+                  Soy Laura López, desarrolladora enfocada en soluciones digitales
+                  centradas en personas. Pensamiento crítico, ownership y
+                  aprendizaje continuo para mover proyectos hacia impacto real.
+                </p>
+                <div className="grid sm:grid-cols-2 gap-3 pt-2">
                   {[
-                    { t: 'Next.js', c: 'accent-blue' },
-                    { t: 'Flutter', c: 'accent-purple' },
-                    { t: 'AWS', c: 'accent-orange' },
-                    { t: 'Producto', c: 'accent-pink' },
+                    {
+                      t: 'Full-stack',
+                      d: 'Del UI al cloud sin perder visión de negocio.',
+                      accent: 'border-l-[#5b8cff]',
+                    },
+                    {
+                      t: 'Centrada en humanos',
+                      d: 'UX, comunicación y colaboración en el proceso.',
+                      accent: 'border-l-[#ff6bb5]',
+                    },
+                    {
+                      t: 'Ownership',
+                      d: 'Decisiones técnicas alineadas a producto.',
+                      accent: 'border-l-[#9b6dff]',
+                    },
+                    {
+                      t: 'Aprendizaje',
+                      d: 'Certificaciones y retos como hábito.',
+                      accent: 'border-l-[#ff9f43]',
+                    },
                   ].map((item) => (
-                    <span
+                    <div
                       key={item.t}
-                      className={`font-mono text-[10px] tracking-[0.2em] uppercase ${item.c}`}
+                      className={`card-glow rounded-xl p-4 border-l-2 ${item.accent}`}
                     >
-                      {item.t}
-                    </span>
+                      <h3 className="text-sm font-semibold text-white/90">{item.t}</h3>
+                      <p className="mt-1.5 text-xs text-[#a8b0c4] font-light leading-relaxed">
+                        {item.d}
+                      </p>
+                    </div>
                   ))}
                 </div>
-                <div className="flex gap-4">
-                  <a
-                    href="https://github.com/SoyNani"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-[#8a8a94] hover:text-white transition-colors"
-                    aria-label="GitHub"
-                  >
-                    <Github size={18} strokeWidth={1.5} />
-                  </a>
-                  <a
-                    href="https://www.linkedin.com/in/laura-daniela-lópez-jiménez"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-[#8a8a94] hover:text-white transition-colors"
-                    aria-label="LinkedIn"
-                  >
-                    <Linkedin size={18} strokeWidth={1.5} />
-                  </a>
-                </div>
-              </div>
-            </section>
-          </div>
-
-          <PageDivider />
-
-          {/* ABOUT */}
-          <div className="section-band section-band--about">
-            <section className="section" id="about">
-              <div className="grid md:grid-cols-12 gap-10 md:gap-12">
-                <div className="md:col-span-4">
-                  <p className="font-mono text-[10px] tracking-[0.25em] uppercase accent-pink">
-                    02 // Mission
-                  </p>
-                  <h2
-                    className="mt-4 text-3xl md:text-4xl font-semibold tracking-tight leading-tight text-white"
-                    style={sans}
-                  >
-                    Mentalidad de
-                    <br />
-                    <span className="accent-purple">producto</span>
-                  </h2>
-                </div>
-                <div className="md:col-span-8 space-y-5">
-                  <p
-                    className="text-[#a8b0c4] font-light leading-relaxed text-base md:text-lg"
-                    style={sans}
-                  >
-                    Soy Laura López, desarrolladora enfocada en soluciones digitales
-                    centradas en personas. Pensamiento crítico, ownership y
-                    aprendizaje continuo para mover proyectos hacia impacto real.
-                  </p>
-                  <div className="grid sm:grid-cols-2 gap-3 pt-2">
-                    {[
-                      {
-                        t: 'Full-stack',
-                        d: 'Del UI al cloud sin perder visión de negocio.',
-                        accent: 'border-l-[#5b8cff]',
-                      },
-                      {
-                        t: 'Centrada en humanos',
-                        d: 'UX, comunicación y colaboración en el proceso.',
-                        accent: 'border-l-[#ff6bb5]',
-                      },
-                      {
-                        t: 'Ownership',
-                        d: 'Decisiones técnicas alineadas a producto.',
-                        accent: 'border-l-[#9b6dff]',
-                      },
-                      {
-                        t: 'Aprendizaje',
-                        d: 'Certificaciones y retos como hábito.',
-                        accent: 'border-l-[#ff9f43]',
-                      },
-                    ].map((item) => (
-                      <div
-                        key={item.t}
-                        className={`card-glow rounded-xl p-4 border-l-2 ${item.accent}`}
+                <div className="flex flex-wrap gap-2 pt-4">
+                  {skills.map((s, i) => {
+                    const chips = ['chip-pink', 'chip-purple', 'chip-blue']
+                    return (
+                      <span
+                        key={s}
+                        className={`text-[11px] px-3 py-1 rounded-full border ${chips[i % 3]}`}
                       >
-                        <h3 className="text-sm font-semibold text-white/90">{item.t}</h3>
-                        <p className="mt-1.5 text-xs text-[#a8b0c4] font-light leading-relaxed">
-                          {item.d}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="flex flex-wrap gap-2 pt-4">
-                    {skills.map((s, i) => {
-                      const chips = ['chip-pink', 'chip-purple', 'chip-blue']
-                      return (
-                        <span
-                          key={s}
-                          className={`text-[11px] px-3 py-1 rounded-full border ${chips[i % 3]}`}
-                        >
-                          {s}
-                        </span>
-                      )
-                    })}
-                  </div>
+                        {s}
+                      </span>
+                    )
+                  })}
                 </div>
               </div>
-            </section>
-          </div>
+            </div>
+          </section>
 
           <PageDivider />
 
-          {/* EXPERIENCE — timeline + darkest band */}
+          {/* EXPERIENCE — timeline + banda oscura */}
           <div className="section-band section-band--work">
             <section className="section" id="work">
               <p className="font-mono text-[10px] tracking-[0.25em] uppercase accent-orange">
@@ -335,9 +331,7 @@ export default function HudPortfolio() {
                   ))}
                 </div>
                 {protectedContent.recognition && (
-                  <div
-                    className="mt-4 rounded-2xl border border-[#ffd166]/25 bg-white/[0.03] p-5 md:p-6"
-                  >
+                  <div className="mt-4 rounded-2xl border border-[#ffd166]/25 bg-white/[0.03] p-5 md:p-6">
                     <p className="font-mono text-[10px] tracking-widest uppercase accent-yellow">
                       Reconocimiento
                     </p>
@@ -355,103 +349,101 @@ export default function HudPortfolio() {
 
           <PageDivider />
 
-          {/* PROJECTS */}
-          <div className="section-band section-band--projects">
-            <section className="section" id="projects">
-              <p className="font-mono text-[10px] tracking-[0.25em] uppercase accent-blue">
-                04 // Artefactos
-              </p>
-              <h2
-                className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight mb-10 text-white"
-                style={sans}
-              >
-                Proyectos
-              </h2>
+          {/* PROJECTS — sin section-band */}
+          <section className="section" id="projects">
+            <p className="font-mono text-[10px] tracking-[0.25em] uppercase accent-blue">
+              04 // Artefactos
+            </p>
+            <h2
+              className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight mb-10 text-white"
+              style={sans}
+            >
+              Proyectos
+            </h2>
 
-              <div className="space-y-6">
-                {projects.map((p, i) => (
-                  <motion.article
-                    key={p.id}
-                    initial={{ opacity: 0, y: 24 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="grid md:grid-cols-12 gap-5 md:gap-8 items-center card-glow rounded-2xl overflow-hidden"
+            <div className="space-y-6">
+              {projects.map((p, i) => (
+                <motion.article
+                  key={p.id}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="grid md:grid-cols-12 gap-5 md:gap-8 items-center card-glow rounded-2xl overflow-hidden"
+                >
+                  <div
+                    className={`md:col-span-5 relative aspect-video md:aspect-[4/3] overflow-hidden ${
+                      i % 2 === 1 ? 'md:order-2' : ''
+                    }`}
                   >
-                    <div
-                      className={`md:col-span-5 relative aspect-video md:aspect-[4/3] overflow-hidden ${
-                        i % 2 === 1 ? 'md:order-2' : ''
-                      }`}
-                    >
-                      {p.image ? (
-                        // eslint-disable-next-line @next/next/no-img-element
-                        <img
-                          src={p.image}
-                          alt={p.title}
-                          className="absolute inset-0 w-full h-full object-cover"
-                        />
-                      ) : (
-                        <div className="absolute inset-0 bg-[#111827]" />
+                    {p.image ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
+                        src={p.image}
+                        alt={p.title}
+                        className="absolute inset-0 w-full h-full object-cover"
+                      />
+                    ) : (
+                      <div className="absolute inset-0 bg-[#111827]" />
+                    )}
+                  </div>
+                  <div
+                    className={`md:col-span-7 p-5 md:p-8 ${
+                      i % 2 === 1 ? 'md:order-1' : ''
+                    }`}
+                  >
+                    <span className="font-mono text-[10px] tracking-widest accent-purple">
+                      0{i + 1}
+                    </span>
+                    <h3 className="mt-1 text-xl md:text-2xl font-semibold text-white">
+                      {p.title}
+                    </h3>
+                    <p className="mt-2 text-sm text-[#a8b0c4] font-light leading-relaxed">
+                      {p.description}
+                    </p>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {p.tags.map((t, ti) => {
+                        const chips = ['chip-pink', 'chip-purple', 'chip-blue']
+                        return (
+                          <span
+                            key={t}
+                            className={`text-[10px] px-2 py-0.5 rounded border ${chips[ti % 3]}`}
+                          >
+                            {t}
+                          </span>
+                        )
+                      })}
+                    </div>
+                    <div className="mt-4 flex gap-4">
+                      {p.demoUrl && (
+                        <a
+                          href={p.demoUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="inline-flex items-center gap-1.5 text-sm accent-blue hover:opacity-80"
+                        >
+                          Demo <ExternalLink size={13} />
+                        </a>
+                      )}
+                      {p.githubUrl && (
+                        <a
+                          href={p.githubUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="inline-flex items-center gap-1.5 text-sm text-[#6a6a78] hover:text-white"
+                        >
+                          Código <Github size={13} />
+                        </a>
                       )}
                     </div>
-                    <div
-                      className={`md:col-span-7 p-5 md:p-8 ${
-                        i % 2 === 1 ? 'md:order-1' : ''
-                      }`}
-                    >
-                      <span className="font-mono text-[10px] tracking-widest accent-purple">
-                        0{i + 1}
-                      </span>
-                      <h3 className="mt-1 text-xl md:text-2xl font-semibold text-white">
-                        {p.title}
-                      </h3>
-                      <p className="mt-2 text-sm text-[#a8b0c4] font-light leading-relaxed">
-                        {p.description}
-                      </p>
-                      <div className="mt-3 flex flex-wrap gap-2">
-                        {p.tags.map((t, ti) => {
-                          const chips = ['chip-pink', 'chip-purple', 'chip-blue']
-                          return (
-                            <span
-                              key={t}
-                              className={`text-[10px] px-2 py-0.5 rounded border ${chips[ti % 3]}`}
-                            >
-                              {t}
-                            </span>
-                          )
-                        })}
-                      </div>
-                      <div className="mt-4 flex gap-4">
-                        {p.demoUrl && (
-                          <a
-                            href={p.demoUrl}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="inline-flex items-center gap-1.5 text-sm accent-blue hover:opacity-80"
-                          >
-                            Demo <ExternalLink size={13} />
-                          </a>
-                        )}
-                        {p.githubUrl && (
-                          <a
-                            href={p.githubUrl}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="inline-flex items-center gap-1.5 text-sm text-[#6a6a78] hover:text-white"
-                          >
-                            Código <Github size={13} />
-                          </a>
-                        )}
-                      </div>
-                    </div>
-                  </motion.article>
-                ))}
-              </div>
-            </section>
-          </div>
+                  </div>
+                </motion.article>
+              ))}
+            </div>
+          </section>
 
           <PageDivider />
 
-          {/* CONTACT */}
+          {/* CONTACT CTA — sí mantiene section-band */}
           <div className="section-band section-band--contact">
             <section
               className="section"
