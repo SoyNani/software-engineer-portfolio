@@ -1,19 +1,19 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import styles from './HudFrame.module.css'
 
 export default function HudFrame() {
   const [coords, setCoords] = useState({ x: 0.0762, y: 0.0022 })
-  const [time, setTime] = useState('OFF')
+  const [time, setTime] = useState('--:--')
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollEl = document.querySelector('.content-scroll')
+      const scrollEl = document.querySelector('[data-content-scroll]')
       if (!scrollEl) return
-      const scrollY = (scrollEl as HTMLElement).scrollTop
-      const maxScroll =
-        (scrollEl as HTMLElement).scrollHeight -
-        (scrollEl as HTMLElement).clientHeight
+      const el = scrollEl as HTMLElement
+      const scrollY = el.scrollTop
+      const maxScroll = el.scrollHeight - el.clientHeight
       const progress = scrollY / (maxScroll || 1)
       setCoords({
         x: parseFloat((0.0762 + progress * 0.4).toFixed(4)),
@@ -21,16 +21,18 @@ export default function HudFrame() {
       })
     }
 
-    const timeInterval = setInterval(() => {
+    const tick = () => {
       const now = new Date()
       setTime(
         `${String(now.getHours()).padStart(2, '0')}${String(
           now.getMinutes()
         ).padStart(2, '0')}`
       )
-    }, 1000)
+    }
+    tick()
+    const timeInterval = setInterval(tick, 1000)
 
-    const scrollEl = document.querySelector('.content-scroll')
+    const scrollEl = document.querySelector('[data-content-scroll]')
     scrollEl?.addEventListener('scroll', handleScroll, { passive: true })
 
     return () => {
@@ -40,60 +42,66 @@ export default function HudFrame() {
   }, [])
 
   return (
-    <div className="hud-frame" aria-hidden="true">
-      {/* TOP BAR */}
-      <div className="frame-top">
-        <div className="hud-status">
-          <span className="hud-diamond">◆</span>
-          <span className="hud-label">{time}</span>
+    <div className={styles.hudFrame} aria-hidden="true">
+      <div className={styles.frameTop}>
+        <div className={styles.hudStatus}>
+          <span className={styles.hudDiamond}>◆</span>
+          <span className={styles.hudLabel}>{time}</span>
         </div>
 
-        <div className="frame-top-notch">
-          <span className="hud-title">NANI // MISSION</span>
+        <div className={styles.frameTopNotch}>
+          <span className={styles.hudTitle}>NANI // MISSION</span>
         </div>
 
-        <div className="hud-menu">MENU</div>
+        <div className={styles.hudMenu}>MENU</div>
       </div>
 
-      {/* BOTTOM BAR */}
-      <div className="frame-bottom">
-        <div className="coords-display">
+      <div className={styles.frameBottom}>
+        <div className={styles.coordsDisplay}>
           X.{String(Math.floor(coords.x * 10000)).padStart(4, '0')} // Y.
           {String(Math.floor(coords.y * 10000)).padStart(4, '0')}
         </div>
       </div>
 
-      {/* LEFT BAR */}
-      <div className="frame-left">
-        <div className="side-ticks">
+      <div className={styles.frameLeft}>
+        <div className={styles.sideTicks}>
           {[...Array(12)].map((_, i) => (
-            <div key={i} className={i % 4 === 0 ? 'tick-lg' : 'tick'} />
+            <div
+              key={i}
+              className={i % 4 === 0 ? styles.tickLg : styles.tick}
+            />
           ))}
         </div>
-        <div className="vertical-text side-label">G_0015</div>
-        <div className="side-ticks">
+        <div className={`${styles.verticalText} ${styles.sideLabel}`}>G_0015</div>
+        <div className={styles.sideTicks}>
           {[...Array(8)].map((_, i) => (
-            <div key={i} className={i % 3 === 0 ? 'tick-lg' : 'tick'} />
+            <div
+              key={i}
+              className={i % 3 === 0 ? styles.tickLg : styles.tick}
+            />
           ))}
         </div>
       </div>
 
-      {/* RIGHT BAR */}
-      <div className="frame-right">
-        <div className="vertical-text side-label">SYS_ON</div>
-        <div className="side-ticks">
+      <div className={styles.frameRight}>
+        <div className={`${styles.verticalText} ${styles.sideLabel}`}>SYS_ON</div>
+        <div className={styles.sideTicks}>
           {[...Array(10)].map((_, i) => (
-            <div key={i} className={i % 3 === 0 ? 'tick-lg' : 'tick'} />
+            <div
+              key={i}
+              className={i % 3 === 0 ? styles.tickLg : styles.tick}
+            />
           ))}
         </div>
-        <div className="vertical-text side-label-dim">NANI.v2</div>
+        <div className={`${styles.verticalText} ${styles.sideLabelDim}`}>
+          NANI.v2
+        </div>
       </div>
 
-      {/* CORNERS */}
-      <div className="corner corner-tl" />
-      <div className="corner corner-tr" />
-      <div className="corner corner-bl" />
-      <div className="corner corner-br" />
+      <div className={`${styles.corner} ${styles.cornerTl}`} />
+      <div className={`${styles.corner} ${styles.cornerTr}`} />
+      <div className={`${styles.corner} ${styles.cornerBl}`} />
+      <div className={`${styles.corner} ${styles.cornerBr}`} />
     </div>
   )
 }
