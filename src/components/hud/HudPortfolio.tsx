@@ -68,7 +68,7 @@ export default function HudPortfolio() {
                 >
                   Laura
                   <br />
-                  <span className="bg-gradient-to-r from-[#ff6bb5] via-[#9b6dff] to-[#5b8cff] bg-clip-text text-transparent">
+                  <span className="bg-linear-to-r from-[#ff6bb5] via-[#9b6dff] to-[#5b8cff] bg-clip-text text-transparent">
                     López
                   </span>
                 </motion.h1>
@@ -76,8 +76,8 @@ export default function HudPortfolio() {
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.16 }}
-                  className="mt-6 max-w-lg text-base md:text-lg text-[#a8b0c4] font-light leading-relaxed"
-                  style={sans}
+                  className="max-w-lg text-base md:text-lg text-[#a8b0c4] font-light leading-relaxed"
+                  style={{ ...sans, marginTop: '1.5rem' }}
                 >
                   Desarrollo soluciones digitales con enfoque estratégico.
                   Tecnología que conecta experiencia y valor real.
@@ -86,19 +86,24 @@ export default function HudPortfolio() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.28 }}
-                  className="mt-10 flex flex-wrap gap-3"
+                  className="m-10 flex flex-wrap gap-3"
                 >
                   <a
                     href="#work"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium text-black transition-opacity hover:opacity-90"
-                    style={{ background: 'linear-gradient(135deg, #ff6bb5, #9b6dff)' }}
+                    className="inline-flex items-center gap-2 rounded-full text-sm font-medium text-black transition-opacity hover:opacity-90"
+                    style={{
+                      background: 'linear-gradient(135deg, #ff6bb5, #9b6dff)',
+                      padding: '0.3rem 1rem',
+                      marginTop: '1rem',
+                    }}
                   >
                     Trayectoria
                     <ArrowUpRight size={15} />
                   </a>
                   <a
                     href="#projects"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-[#9b6dff]/50 text-[#c4b0ff] text-sm hover:border-[#9b6dff] transition-colors"
+                    className="inline-flex items-center gap-2 rounded-full border border-[#9b6dff]/50 text-[#c4b0ff] text-sm hover:border-[#9b6dff] transition-colors"
+                    style={{ padding: '0.3rem 1rem', marginTop: '1rem', }}
                   >
                     Proyectos
                   </a>
@@ -326,7 +331,7 @@ export default function HudPortfolio() {
                   {protectedContent.education.map((ed) => (
                     <div
                       key={ed.degree + ed.institution}
-                      className="rounded-xl border border-white/8 bg-white/[0.03] px-4 py-4"
+                      className="rounded-xl border border-white/8 bg-white/3 px-4 py-4"
                     >
                       <p className="text-sm font-medium text-white">{ed.degree}</p>
                       <p className="text-xs text-[#bdc4d4] mt-1">{ed.institution}</p>
@@ -337,7 +342,7 @@ export default function HudPortfolio() {
                   ))}
                 </div>
                 {protectedContent.recognition && (
-                  <div className="mt-4 rounded-2xl border border-[#ffd166]/25 bg-white/[0.03] p-5 md:p-6">
+                  <div className="mt-4 rounded-2xl border border-[#ffd166]/25 bg-white/3 p-5 md:p-6">
                     <p className="font-mono text-[10px] tracking-widest uppercase accent-yellow">
                       Reconocimiento
                     </p>
@@ -376,7 +381,7 @@ export default function HudPortfolio() {
                   className="grid md:grid-cols-12 gap-5 md:gap-8 items-center card-glow rounded-2xl overflow-hidden"
                 >
                   <div
-                    className={`md:col-span-5 relative aspect-video md:aspect-[4/3] overflow-hidden ${
+                      className={`md:col-span-5 relative aspect-video md:aspect-4/3 overflow-hidden ${
                       i % 2 === 1 ? 'md:order-2' : ''
                     }`}
                   >
@@ -470,7 +475,7 @@ export default function HudPortfolio() {
                 >
                   Construyamos algo
                   <br />
-                  <span className="bg-gradient-to-r from-[#ff6bb5] via-[#9b6dff] to-[#5b8cff] bg-clip-text text-transparent">
+                  <span className="bg-linear-to-r from-[#ff6bb5] via-[#9b6dff] to-[#5b8cff] bg-clip-text text-transparent">
                     juntos
                   </span>
                 </h2>
