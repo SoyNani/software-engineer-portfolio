@@ -33,19 +33,6 @@ export const protectedContent = {
             ]
         },
         {
-            company: "Freelance – Desarrollo Web PHP",
-            role: "Desarrolladora Web",
-            period: "Septiembre 2025 - Actualidad",
-            location: "Colombia (Remoto)",
-            isActual: true,
-            achievements: [
-                "Estabilización y evolución de sitios PHP/WordPress: menos incidencias recurrentes y tiempos de respuesta más predecibles ante cambios de negocio.",
-                "Operación de un WordPress en AWS (servidor, despliegues y respaldos), reduciendo riesgo de downtime y facilitando recuperaciones seguras.",
-                "Modelado y optimización de datos en MySQL con consultas y relaciones bien definidas, mejorando integridad y rendimiento de las operaciones críticas.",
-                "Interfaces responsivas con HTML, CSS, JavaScript y Bootstrap que elevan la usabilidad en móvil y escritorio."
-            ]
-        },
-        {
             company: "Pragma S.A",
             role: "Aprendiz de Desarrollo",
             period: "Nov 2024 – Mayo 2025",

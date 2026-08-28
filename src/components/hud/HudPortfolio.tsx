@@ -54,9 +54,9 @@ export default function HudPortfolio() {
               <motion.p
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="font-mono text-[11px] tracking-[0.28em] uppercase text-[#a8b0c4] mb-5"
+                className="font-mono text-[11px] tracking-[0.28em] uppercase text-[#bdc4d4] mb-5"
               >
-                Software · Producto · Liderazgo
+                Software · Planificación · Liderazgo
               </motion.p>
               <motion.h1
                 initial={{ opacity: 0, y: 24 }}
@@ -67,7 +67,7 @@ export default function HudPortfolio() {
               >
                 Laura
                 <br />
-                <span className="bg-gradient-to-r from-[#ff6bb5] via-[#9b6dff] to-[#5b8cff] bg-clip-text text-transparent">
+                <span className="bg-linear-to-r from-[#ff6bb5] via-[#9b6dff] to-[#5b8cff] bg-clip-text text-transparent">
                   López
                 </span>
               </motion.h1>
@@ -75,11 +75,10 @@ export default function HudPortfolio() {
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.16 }}
-                className="mt-6 max-w-lg text-base md:text-lg text-[#a8b0c4] font-light leading-relaxed"
+                className="mt-6 max-w-lg text-base md:text-lg text-[#bdc4d4] font-light leading-relaxed"
                 style={sans}
               >
-                Desarrollo soluciones digitales con enfoque estratégico.
-                Tecnología que conecta experiencia y valor real.
+                Desarrolladora de software enfocada en aplicaciones móviles con Flutter y productos web fullstack. Lidero desde arquitectura hasta publicación, con una obsesión particular por que las cosas funcionen bien y se vean mejor.
               </motion.p>
               <motion.div
                 initial={{ opacity: 0 }}
@@ -163,7 +162,7 @@ export default function HudPortfolio() {
               </div>
               <div className="md:col-span-8 space-y-5">
                 <p
-                  className="text-[#a8b0c4] font-light leading-relaxed text-base md:text-lg"
+                  className="text-[#bdc4d4] font-light leading-relaxed text-base md:text-lg"
                   style={sans}
                 >
                   Soy Laura López, desarrolladora enfocada en soluciones digitales
@@ -198,7 +197,7 @@ export default function HudPortfolio() {
                       className={`card-glow rounded-xl p-4 border-l-2 ${item.accent}`}
                     >
                       <h3 className="text-sm font-semibold text-white/90">{item.t}</h3>
-                      <p className="mt-1.5 text-xs text-[#a8b0c4] font-light leading-relaxed">
+                      <p className="mt-1.5 text-xs text-[#bdc4d4] font-light leading-relaxed">
                         {item.d}
                       </p>
                     </div>
@@ -235,10 +234,6 @@ export default function HudPortfolio() {
               >
                 Experiencia laboral
               </h2>
-              <p className="mt-3 max-w-xl text-sm text-[#8a92a8] font-light" style={sans}>
-                Resultados y impacto por rol — no solo tareas.
-              </p>
-
               <div className="timeline">
                 {protectedContent.experience.map((exp, i) => {
                   const color = expColors[i % expColors.length]
@@ -296,7 +291,7 @@ export default function HudPortfolio() {
                         {exp.achievements.map((a) => (
                           <li
                             key={a.slice(0, 40)}
-                            className="text-sm text-[#a8b0c4] font-light leading-relaxed flex gap-3"
+                            className="text-sm text-[#bdc4d4] font-light leading-relaxed flex gap-3"
                             style={sans}
                           >
                             <span
@@ -323,7 +318,7 @@ export default function HudPortfolio() {
                       className="rounded-xl border border-white/8 bg-white/[0.03] px-4 py-4"
                     >
                       <p className="text-sm font-medium text-white">{ed.degree}</p>
-                      <p className="text-xs text-[#a8b0c4] mt-1">{ed.institution}</p>
+                      <p className="text-xs text-[#bdc4d4] mt-1">{ed.institution}</p>
                       <p className="text-[10px] font-mono text-[#6a6a78] mt-2 uppercase">
                         {ed.period}
                       </p>
@@ -338,7 +333,7 @@ export default function HudPortfolio() {
                     <p className="mt-2 text-base md:text-lg font-semibold text-white">
                       {protectedContent.recognition.title}
                     </p>
-                    <p className="mt-2 text-sm text-[#a8b0c4] font-light">
+                    <p className="mt-2 text-sm text-[#bdc4d4] font-light">
                       {protectedContent.recognition.description}
                     </p>
                   </div>
@@ -397,7 +392,7 @@ export default function HudPortfolio() {
                     <h3 className="mt-1 text-xl md:text-2xl font-semibold text-white">
                       {p.title}
                     </h3>
-                    <p className="mt-2 text-sm text-[#a8b0c4] font-light leading-relaxed">
+                    <p className="mt-2 text-sm text-[#bdc4d4] font-light leading-relaxed">
                       {p.description}
                     </p>
                     <div className="mt-3 flex flex-wrap gap-2">
@@ -470,7 +465,7 @@ export default function HudPortfolio() {
                     juntos
                   </span>
                 </h2>
-                <p className="mt-4 text-[#a8b0c4] font-light max-w-md mx-auto text-sm md:text-base">
+                <p className="mt-4 text-[#bdc4d4] font-light max-w-md mx-auto text-sm md:text-base">
                   Abierta a roles, colaboraciones y proyectos con impacto.
                 </p>
                 <div className="mt-8 flex flex-wrap justify-center gap-3">
