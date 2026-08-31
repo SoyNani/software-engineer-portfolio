@@ -1,33 +1,24 @@
-"use client";
+import SectionLabel from '@/components/atoms/SectionLabel'
+import ProjectCard from '@/components/molecules/ProjectCard'
+import { projects } from '@/data/projects.content'
+import { sans } from '@/lib/styles'
 
-import { SectionHeader } from "../molecules/SectionHeader";
-import { ProjectCard } from "../molecules/ProjectCard";
-import { projects } from "@/data/projects.content";
-import { ProtectedArea } from "../molecules/ProtectedArea";
+export default function ProjectsSection() {
+  return (
+    <section className="section" id="projects">
+      <SectionLabel accent="blue">04 // Artefactos</SectionLabel>
+      <h2
+        className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight mb-10 text-white"
+        style={sans}
+      >
+        Proyectos
+      </h2>
 
-export function ProjectsSection() {
-    return (
-        <section id="projects" className="py-24 md:py-32 bg-[#08080B]">
-            <div className="container mx-auto px-6 max-w-7xl">
-                <SectionHeader
-                    tag="Proyectos"
-                    title="Productos que he construido"
-                    highlight="construido"
-                    description="Una selección de proyectos que reflejan mi enfoque en producto, diseño y tecnología."
-                />
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-                    {projects.map((project) => (
-                        project.id === "ecommerce-headless" ? (
-                            <ProtectedArea key={project.id}>
-                                <ProjectCard project={project} />
-                            </ProtectedArea>
-                        ) : (
-                            <ProjectCard key={project.id} project={project} />
-                        )
-                    ))}
-                </div>
-            </div>
-        </section>
-    );
+      <div className="space-y-6">
+        {projects.map((p, i) => (
+          <ProjectCard key={p.id} project={p} index={i} />
+        ))}
+      </div>
+    </section>
+  )
 }

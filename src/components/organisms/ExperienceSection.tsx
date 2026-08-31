@@ -1,30 +1,33 @@
-"use client";
+'use client'
 
-import { protectedContent } from "@/data/protected.content";
-import { SectionHeader } from "../molecules/SectionHeader";
-import { ExperienceCard } from "../molecules/ExperienceCard";
+import SectionLabel from '@/components/atoms/SectionLabel'
+import TimelineItem from '@/components/molecules/TimelineItem'
+import { experience } from '@/data/experience.content'
+import { EXP_COLORS, sans } from '@/lib/styles'
 
-export const ExperienceSection = () => {
-    return (
-        <section id="experience" className="py-24 md:py-32 bg-[#08080B]">
-            <div className="container mx-auto px-6 max-w-7xl">
-                <SectionHeader
-                    tag="Trayectoria"
-                    title="Experiencia laboral"
-                    highlight="laboral"
-                    description="Mi recorrido profesional construyendo soluciones digitales en diferentes industrias y tecnologías."
-                />
+export default function ExperienceSection() {
+  return (
+    <div className="section-band section-band--work">
+      <section className="section" id="work">
+        <SectionLabel accent="orange">03 // Trayectoria</SectionLabel>
+        <h2
+          className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight text-white"
+          style={sans}
+        >
+          Experiencia laboral
+        </h2>
 
-                <div className="relative mt-12">
-                    {protectedContent.experience.map((exp, index) => (
-                        <ExperienceCard
-                            key={index}
-                            experience={exp}
-                            index={index}
-                        />
-                    ))}
-                </div>
-            </div>
-        </section>
-    );
-};
+        <div className="timeline">
+          {experience.map((exp, i) => (
+            <TimelineItem
+              key={exp.company + exp.period}
+              item={exp}
+              index={i}
+              color={EXP_COLORS[i % EXP_COLORS.length]}
+            />
+          ))}
+        </div>
+      </section>
+    </div>
+  )
+}

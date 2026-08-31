@@ -1,128 +1,115 @@
-"use client";
+'use client'
 
-import { motion } from "framer-motion";
-import { ArrowDown, Sparkles, Github, Linkedin, MessageCircle, Mail } from "lucide-react";
-import Link from "next/link";
-import { ScrollIndicator } from "../molecules/ScrollIndicator";
-import { useAuth } from "@/context/AuthContext";
+import { motion } from 'framer-motion'
+import { Github, Linkedin, ArrowUpRight } from 'lucide-react'
+import SectionLabel from '@/components/atoms/SectionLabel'
+import GradientButton from '@/components/atoms/GradientButton'
+import OutlineButton from '@/components/atoms/OutlineButton'
+import SocialLink from '@/components/atoms/SocialLink'
+import HeroAvatar from '@/components/molecules/HeroAvatar'
+import { sans } from '@/lib/styles'
 
-export function HeroSection() {
-    const { isLoggedIn } = useAuth();
-    const phoneNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "";
-    const email = process.env.NEXT_PUBLIC_EMAIL || "";
-    const message = encodeURIComponent("Hola Laura nos gusto tú perfil, quiero saber más de ti");
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
-    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}`;
+const tags = [
+  { t: 'Next.js', c: 'accent-blue' },
+  { t: 'Flutter', c: 'accent-purple' },
+  { t: 'AWS', c: 'accent-orange' },
+  { t: 'Producto', c: 'accent-pink' },
+] as const
 
-    return (
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-            {/* Grid background */}
-            <div className="absolute inset-0 grid-bg opacity-40" />
+export default function HeroSection() {
+  return (
+    <section
+      className="section"
+      style={{
+        minHeight: 'calc(100vh - 96px)',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+      }}
+    >
+      <div className="flex items-start justify-between gap-4 w-full">
+        <SectionLabel accent="purple">01 // Inicio</SectionLabel>
+        <span className="font-mono text-[10px] tracking-widest text-[#6a6a78]">0014</span>
+      </div>
 
-            {/* Gradient orbs */}
-            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-[animate-float_6s_ease-in-out_infinite]" />
-            <div
-                className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-primary/5 rounded-full blur-3xl animate-[animate-float_6s_ease-in-out_infinite]"
-                style={{ animationDelay: "3s" }}
-            />
+      <div className="hero-grid py-10 md:py-14">
+        <div className="w-full">
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="font-mono text-[11px] tracking-[0.28em] uppercase text-[#a8b0c4] mb-5"
+          >
+            Software · Producto · Liderazgo
+          </motion.p>
+          <motion.h1
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.08 }}
+            className="text-[clamp(2.75rem,8vw,5.5rem)] font-semibold tracking-[-0.04em] leading-[0.92] text-white"
+            style={sans}
+          >
+            Laura
+            <br />
+            <span className="bg-linear-to-r from-[#ff6bb5] via-[#9b6dff] to-[#5b8cff] bg-clip-text text-transparent">
+              López
+            </span>
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.16 }}
+            className="max-w-lg text-base md:text-lg text-[#a8b0c4] font-light leading-relaxed"
+            style={{ ...sans, marginTop: '1.5rem' }}
+          >
+            Desarrollo soluciones digitales con enfoque estratégico. Tecnología que
+            conecta experiencia y valor real.
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.28 }}
+            className="mt-8 flex flex-wrap gap-3"
+          >
+            <GradientButton href="#work">
+              Trayectoria <ArrowUpRight size={15} />
+            </GradientButton>
+            <OutlineButton href="#projects">Proyectos</OutlineButton>
+          </motion.div>
+        </div>
 
-            <div className="relative z-10 container mx-auto px-6 text-center">
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="flex items-center justify-center gap-2 mb-6"
-                >
-                    <span
-                        className="inline-flex items-center gap-2 text-xs font-medium font-mono px-3 py-1.5 rounded-full border"
-                        style={{ color: '#4f48e4', backgroundColor: '#4f48e410', borderColor: '#4f48e440' }}
-                    >
-                        <Sparkles size={12} />
-                        Software Developer · Leadership Mindset
-                    </span>
-                </motion.div>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.92 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.2, duration: 0.5 }}
+          className="flex justify-center lg:justify-end"
+        >
+          <HeroAvatar />
+        </motion.div>
+      </div>
 
-                <motion.h1
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
-                    className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight mb-6"
-                >
-                    Laura <span className="gradient-text">López</span>
-                </motion.h1>
-
-                <motion.p
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-                    className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-10 text-balance"
-                >
-                    Desarrollo soluciones digitales con enfoque estratégico,
-                    pensando siempre en el usuario final y en la lógica de negocio.
-                    <br className="hidden sm:block" />
-                    Construyo tecnología que conecta experiencia y valor real.
-                </motion.p>
-
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.45, ease: "easeOut" }}
-                    className="flex flex-col items-center justify-center gap-8"
-                >
-                    {/* Social networks above button */}
-                    <div className="flex items-center gap-6">
-                        {isLoggedIn && (
-                            <>
-                                <a
-                                    href={gmailUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-muted-foreground hover:text-primary transition-all duration-300 p-2 hover:bg-secondary/50 rounded-full"
-                                    aria-label="Email"
-                                >
-                                    <Mail size={26} />
-                                </a>
-                                <a
-                                    href={whatsappUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-muted-foreground hover:text-primary transition-all duration-300 p-2 hover:bg-secondary/50 rounded-full"
-                                    aria-label="WhatsApp"
-                                >
-                                    <MessageCircle size={26} />
-                                </a>
-                            </>
-                        )}
-                        <a
-                            href="https://www.linkedin.com/in/laura-daniela-lópez-jiménez"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-muted-foreground hover:text-primary transition-all duration-300 p-2 hover:bg-secondary/50 rounded-full"
-                            aria-label="LinkedIn"
-                        >
-                            <Linkedin size={26} />
-                        </a>
-                        <a
-                            href="https://github.com/SoyNani"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-muted-foreground hover:text-primary transition-all duration-300 p-2 hover:bg-secondary/50 rounded-full"
-                            aria-label="GitHub"
-                        >
-                            <Github size={26} />
-                        </a>
-                    </div>
-
-                    <Link
-                        href="#experience"
-                        className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-medium px-8 py-4 rounded-xl hover:opacity-90 transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 group"
-                    >
-                        Ver experiencia
-                        <ArrowDown size={18} className="group-hover:translate-y-1 transition-transform" />
-                    </Link>
-                </motion.div>
-            </div>
-            <ScrollIndicator />
-        </section>
-    );
-};
+      <div className="flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-5 w-full">
+        <div className="flex flex-wrap gap-x-6 gap-y-2">
+          {tags.map((item) => (
+            <span
+              key={item.t}
+              className={`font-mono text-[10px] tracking-[0.2em] uppercase ${item.c}`}
+            >
+              {item.t}
+            </span>
+          ))}
+        </div>
+        <div className="flex gap-4">
+          <SocialLink href="https://github.com/SoyNani" label="GitHub">
+            <Github size={18} strokeWidth={1.5} />
+          </SocialLink>
+          <SocialLink
+            href="https://www.linkedin.com/in/laura-daniela-lópez-jiménez"
+            label="LinkedIn"
+          >
+            <Linkedin size={18} strokeWidth={1.5} />
+          </SocialLink>
+        </div>
+      </div>
+    </section>
+  )
+}

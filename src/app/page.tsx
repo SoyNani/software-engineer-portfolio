@@ -1,5 +1,5 @@
-import HudPortfolio from "@/components/hud/HudPortfolio";
+import PortfolioPage from '@/components/templates/PortfolioPage'
 
 export default function Home() {
-  return <HudPortfolio />;
+  return <PortfolioPage />
 }
