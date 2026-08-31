@@ -4,7 +4,7 @@ import OutlineButton from '@/components/atoms/OutlineButton'
 import { sans } from '@/lib/styles'
 
 export default function ContactSection() {
-  const email = process.env.NEXT_PUBLIC_EMAIL || 'soyynanii@gmail.com'
+  const email = process.env.NEXT_PUBLIC_EMAIL
 
   return (
     <div className="section-band section-band--contact">

@@ -10,7 +10,7 @@ import HeroAvatar from '@/components/molecules/HeroAvatar'
 import { sans } from '@/lib/styles'
 
 export default function HeroSection() {
-  const email = process.env.NEXT_PUBLIC_EMAIL || 'soyynanii@gmail.com'
+  const email = process.env.NEXT_PUBLIC_EMAIL
 
   return (
     <section

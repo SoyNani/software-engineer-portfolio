@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Laura López — NANI // Mission",
+  title: "Laura López",
   description:
     "Desarrolladora de software. Portfolio con interfaz HUD y enfoque de producto.",
 };
