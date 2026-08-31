@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Github, Linkedin, ArrowUpRight } from 'lucide-react'
+import { Github, Linkedin, Mail, ArrowUpRight } from 'lucide-react'
 import SectionLabel from '@/components/atoms/SectionLabel'
 import GradientButton from '@/components/atoms/GradientButton'
 import OutlineButton from '@/components/atoms/OutlineButton'
@@ -9,14 +9,9 @@ import SocialLink from '@/components/atoms/SocialLink'
 import HeroAvatar from '@/components/molecules/HeroAvatar'
 import { sans } from '@/lib/styles'
 
-const tags = [
-  { t: 'Next.js', c: 'accent-blue' },
-  { t: 'Flutter', c: 'accent-purple' },
-  { t: 'AWS', c: 'accent-orange' },
-  { t: 'Producto', c: 'accent-pink' },
-] as const
-
 export default function HeroSection() {
+  const email = process.env.NEXT_PUBLIC_EMAIL || 'soyynanii@gmail.com'
+
   return (
     <section
       className="section"
@@ -87,28 +82,19 @@ export default function HeroSection() {
         </motion.div>
       </div>
 
-      <div className="flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-5 w-full">
-        <div className="flex flex-wrap gap-x-6 gap-y-2">
-          {tags.map((item) => (
-            <span
-              key={item.t}
-              className={`font-mono text-[10px] tracking-[0.2em] uppercase ${item.c}`}
-            >
-              {item.t}
-            </span>
-          ))}
-        </div>
-        <div className="flex gap-4">
-          <SocialLink href="https://github.com/SoyNani" label="GitHub">
-            <Github size={18} strokeWidth={1.5} />
-          </SocialLink>
-          <SocialLink
-            href="https://www.linkedin.com/in/laura-daniela-lópez-jiménez"
-            label="LinkedIn"
-          >
-            <Linkedin size={18} strokeWidth={1.5} />
-          </SocialLink>
-        </div>
+      <div className="flex flex-wrap items-center justify-end gap-5 border-t border-white/10 pt-5 w-full">
+        <SocialLink href={`mailto:${email}`} label="Email">
+          <Mail size={18} strokeWidth={1.5} />
+        </SocialLink>
+        <SocialLink href="https://github.com/SoyNani" label="GitHub">
+          <Github size={18} strokeWidth={1.5} />
+        </SocialLink>
+        <SocialLink
+          href="https://www.linkedin.com/in/laura-daniela-lópez-jiménez"
+          label="LinkedIn"
+        >
+          <Linkedin size={18} strokeWidth={1.5} />
+        </SocialLink>
       </div>
     </section>
   )

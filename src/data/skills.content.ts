@@ -1,35 +1,21 @@
-export const skills = [
-  'React',
-  'Next.js',
-  'TypeScript',
-  'Flutter',
-  'AWS',
-  'Tailwind',
-  'Figma',
-  'MySQL',
-  'Scrum',
-  'AR/VR',
-] as const
+export type SkillItem = {
+  name: string
+  id: string
+  accent: string
+}
 
-export const missionPillars = [
-  {
-    title: 'Full-stack',
-    description: 'Del UI al cloud sin perder visión de negocio.',
-    accent: 'border-l-[#5b8cff]',
-  },
-  {
-    title: 'Centrada en humanos',
-    description: 'UX, comunicación y colaboración en el proceso.',
-    accent: 'border-l-[#ff6bb5]',
-  },
-  {
-    title: 'Ownership',
-    description: 'Decisiones técnicas alineadas a producto.',
-    accent: 'border-l-[#9b6dff]',
-  },
-  {
-    title: 'Aprendizaje',
-    description: 'Certificaciones y retos como hábito.',
-    accent: 'border-l-[#ff9f43]',
-  },
-] as const
+/** Lenguajes, frameworks y herramientas que dominas */
+export const skills: SkillItem[] = [
+  { id: 'typescript', name: 'TypeScript', accent: '#5b8cff' },
+  { id: 'javascript', name: 'JavaScript', accent: '#ffd166' },
+  { id: 'dart', name: 'Dart', accent: '#5b8cff' },
+  { id: 'java', name: 'Java', accent: '#ff9f43' },
+  { id: 'sql', name: 'SQL', accent: '#9b6dff' },
+  { id: 'react', name: 'React', accent: '#5b8cff' },
+  { id: 'nextjs', name: 'Next.js', accent: '#eef0f6' },
+  { id: 'flutter', name: 'Flutter', accent: '#5b8cff' },
+  { id: 'aws', name: 'AWS', accent: '#ff9f43' },
+  { id: 'tailwind', name: 'Tailwind', accent: '#5b8cff' },
+  { id: 'figma', name: 'Figma', accent: '#ff6bb5' },
+  { id: 'git', name: 'Git', accent: '#ff9f43' },
+]

@@ -1,6 +1,6 @@
 import HudFrame from '@/components/organisms/HudFrame'
 import HeroSection from '@/components/organisms/HeroSection'
-import MissionSection from '@/components/organisms/MissionSection'
+import SkillsSection from '@/components/organisms/SkillsSection'
 import ExperienceSection from '@/components/organisms/ExperienceSection'
 import ProjectsSection from '@/components/organisms/ProjectsSection'
 import CertificatesSection from '@/components/organisms/CertificatesSection'
@@ -17,7 +17,7 @@ export default function PortfolioPage() {
         <div className="page-shell">
           <HeroSection />
           <PageDivider />
-          <MissionSection />
+          <SkillsSection />
           <PageDivider />
           <ExperienceSection />
           <PageDivider />
