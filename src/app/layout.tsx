@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Laura López | Desarrolladora de Software",
     description:
-      "Desarrolladora de software especializada en Flutter y React. Descubre mis proyectos y trayectoria.",
+      "Desarrolladora de software especializada en Flutter. Descubre mis proyectos y trayectoria.",
     url: "https://software-engineer-portfolio-mu.vercel.app",
     siteName: "Laura López",
     locale: "es_CO",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Laura López | Desarrolladora de Software",
     description:
-      "Desarrolladora de software especializada en Flutter y React. Descubre mis proyectos y trayectoria.",
+      "Desarrolladora de software especializada en Flutter. Descubre mis proyectos y trayectoria.",
     images: ["/og-image.png"],
   },
   robots: {
@@ -59,7 +59,7 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Laura López",
-    alternateName: ["Laura Daniela López Jiménez", "Nani", "Soy Nani"],
+    alternateName: ["Laura Daniela López Jiménez", "Nani", "Soy Nani", "Laura Lopez", "Laura D. López"],
     url: "https://software-engineer-portfolio-mu.vercel.app",
     jobTitle: "Desarrolladora de Software",
     sameAs: [

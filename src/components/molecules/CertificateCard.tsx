@@ -38,7 +38,7 @@ export default function CertificateCard({ item, index, onPreview }: CertificateC
           )}
         </div>
         <p className="mt-1 text-xs text-[#a8b0c4]">{item.issuer}</p>
-        <p className="mt-1 font-mono text-[10px] tracking-wider text-[#5a5a64] uppercase">
+        <p className="mt-1 font-mono text-[10px] tracking-wider text-[#a8a8af] uppercase">
           {item.period}
           {item.credentialId ? ` · ID ${item.credentialId}` : ''}
         </p>

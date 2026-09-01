@@ -23,28 +23,25 @@ export interface CertificateItem {
  */
 export const certificates: CertificateItem[] = [
   {
-    id: 'google-pm',
-    title: 'Certificado de Gestión de Proyectos de Google',
-    issuer: 'Google (Coursera)',
-    period: 'En progreso',
-    status: 'in-progress',
+    id: 'gci-world',
+    title: 'Global Consumer Intelligence World Program (GCI World)',
+    issuer: 'Matsuo-Iwasawa Laboratory, Graduate School of Engineering, University of Tokyo',
+    period: 'Finalizado',
+    status: 'completed',
   },
   {
     id: 'miu-leadership',
     title: 'Continuing Education Certificate in Leadership',
     issuer: 'MIU City University Miami + UNIR',
-    period: 'En progreso',
-    status: 'in-progress',
+    period: 'Finalizado',
+    status: 'completed',
   },
   {
-    id: 'mintic-ai',
-    title: 'Bootcamp en Inteligencia Artificial',
-    issuer: 'MinTIC Colombia',
-    period: 'Nov 2024 – Dic 2024',
+    id: 'google-pm',
+    title: 'Fundamentos de Gestión de Proyectos',
+    issuer: 'Google (Coursera)',
+    period: 'Finalizado',
     status: 'completed',
-    // previewUrl: '/certificates/mintic-ai.png',
-    // downloadUrl: '/certificates/mintic-ai.pdf',
-    // fileName: 'Laura-Lopez-Bootcamp-IA-MinTIC.pdf',
   },
   {
     id: 'uci-decision',
@@ -54,6 +51,16 @@ export const certificates: CertificateItem[] = [
     status: 'completed',
     // previewUrl: '/certificates/uci-decision.png',
     // downloadUrl: '/certificates/uci-decision.pdf',
+  },
+  {
+    id: 'mintic-ai',
+    title: 'Bootcamp en Inteligencia Artificial',
+    issuer: 'MinTIC Colombia',
+    period: 'Finalizado',
+    status: 'completed',
+    // previewUrl: '/certificates/mintic-ai.png',
+    // downloadUrl: '/certificates/mintic-ai.pdf',
+    // fileName: 'Laura-Lopez-Bootcamp-IA-MinTIC.pdf',
   },
 ]
 
