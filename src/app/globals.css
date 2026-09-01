@@ -543,7 +543,44 @@ body {
   pointer-events: none;
 }
 
-/* ─── SKILLS GRID (HUD modules) ─── */
+/* ─── SKILLS BY CATEGORY ─── */
+.skill-category-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.skill-category-line {
+  flex: 1;
+  height: 1px;
+  background-image: radial-gradient(
+    circle,
+    rgba(160, 170, 190, 0.35) 1px,
+    transparent 1.5px
+  );
+  background-size: 6px 1px;
+  background-repeat: repeat-x;
+}
+
+.skill-related {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.skill-related-tag {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: #8a92a8;
+  padding: 4px 10px;
+  border: 1px dashed rgba(192, 192, 200, 0.2);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 2px;
+}
+
 .skill-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -563,6 +600,12 @@ body {
   }
 }
 
+@media (min-width: 1100px) {
+  .skill-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
 .skill-card {
   position: relative;
   display: flex;
@@ -570,8 +613,8 @@ body {
   align-items: center;
   justify-content: center;
   gap: 12px;
-  min-height: 120px;
-  padding: 1.25rem 0.75rem;
+  min-height: 110px;
+  padding: 1.15rem 0.75rem;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(192, 192, 200, 0.12);
   transition:
