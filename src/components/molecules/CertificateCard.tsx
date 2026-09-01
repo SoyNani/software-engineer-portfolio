@@ -1,24 +1,80 @@
+'use client'
+
+import { Eye, Download, FileBadge } from 'lucide-react'
 import type { CertificateItem } from '@/data/certificates.content'
+import { sans } from '@/lib/styles'
 
 type CertificateCardProps = {
   item: CertificateItem
+  index: number
+  onPreview: (item: CertificateItem) => void
 }
 
-export default function CertificateCard({ item }: CertificateCardProps) {
+export default function CertificateCard({ item, index, onPreview }: CertificateCardProps) {
+  const canPreview = Boolean(item.previewUrl)
+  const canDownload = Boolean(item.downloadUrl)
+  const isProgress = item.status === 'in-progress'
+
   return (
-    <div className="rounded-xl border border-white/8 bg-white/3 px-4 py-4 card-glow">
-      <div className="flex items-start justify-between gap-2">
-        <p className="text-sm font-medium text-white leading-snug">{item.title}</p>
-        {item.status === 'in-progress' && (
-          <span className="shrink-0 text-[9px] uppercase tracking-wider px-2 py-0.5 rounded-full border border-[#ffd166]/40 text-[#ffd166]">
-            En curso
+    <article className="cert-row">
+      <div className="cert-row-index font-mono">
+        {String(index + 1).padStart(2, '0')}
+      </div>
+
+      <div className="cert-row-icon" aria-hidden>
+        <FileBadge size={18} strokeWidth={1.4} />
+      </div>
+
+      <div className="cert-row-body min-w-0">
+        <div className="flex flex-wrap items-center gap-2">
+          <h3 className="text-sm font-medium text-white leading-snug" style={sans}>
+            {item.title}
+          </h3>
+          {isProgress && (
+            <span className="cert-badge cert-badge--progress">En curso</span>
+          )}
+          {item.status === 'completed' && (
+            <span className="cert-badge cert-badge--done">Completado</span>
+          )}
+        </div>
+        <p className="mt-1 text-xs text-[#a8b0c4]">{item.issuer}</p>
+        <p className="mt-1 font-mono text-[10px] tracking-wider text-[#5a5a64] uppercase">
+          {item.period}
+          {item.credentialId ? ` · ID ${item.credentialId}` : ''}
+        </p>
+      </div>
+
+      <div className="cert-row-actions">
+        <button
+          type="button"
+          className="cert-action"
+          onClick={() => onPreview(item)}
+          title={canPreview ? 'Vista previa' : 'Ver detalle'}
+        >
+          <Eye size={14} strokeWidth={1.5} />
+          <span className="hidden sm:inline">Preview</span>
+        </button>
+
+        {canDownload ? (
+          <a
+            href={item.downloadUrl}
+            download={item.fileName || true}
+            className="cert-action cert-action--primary"
+            title="Descargar certificado"
+          >
+            <Download size={14} strokeWidth={1.5} />
+            <span className="hidden sm:inline">PDF</span>
+          </a>
+        ) : (
+          <span
+            className="cert-action cert-action--disabled"
+            title="Archivo aún no disponible"
+          >
+            <Download size={14} strokeWidth={1.5} />
+            <span className="hidden sm:inline">PDF</span>
           </span>
         )}
       </div>
-      <p className="text-xs text-[#bdc4d4] mt-1">{item.issuer}</p>
-      <p className="text-[10px] font-mono text-[#6a6a78] mt-2 uppercase">
-        {item.period}
-      </p>
-    </div>
+    </article>
   )
 }
