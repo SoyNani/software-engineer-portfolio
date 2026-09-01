@@ -10,15 +10,10 @@ export type SkillCategory = {
   code: string
   accent: string
   skills: SkillItem[]
-  /** Librerías / detalle sin peso de icono propio */
   related?: string[]
 }
 
-/**
- * Stack principal con icono.
- * Related = herramientas del ecosistema (no compiten visualmente con el core).
- * Buenas prácticas (SOLID, Clean Code, patrones) no van aquí: son principios, no tools.
- */
+
 export const skillCategories: SkillCategory[] = [
   {
     id: 'mobile',
@@ -30,7 +25,6 @@ export const skillCategories: SkillCategory[] = [
       { id: 'dart', name: 'Dart', accent: '#5b8cff' },
       { id: 'firebase', name: 'Firebase', accent: '#ff9f43' },
     ],
-    related: ['BLoC', 'Riverpod', 'GoRouter', 'Dio', 'GetIt', 'Secure Storage'],
   },
   {
     id: 'frontend',
@@ -70,9 +64,7 @@ export const skillCategories: SkillCategory[] = [
     skills: [
       { id: 'aws', name: 'AWS', accent: '#ff9f43' },
       { id: 'azure', name: 'Azure DevOps', accent: '#5b8cff' },
-      { id: 'firebase', name: 'Firebase', accent: '#ffd166' },
     ],
-    related: ['CloudFront', 'S3', 'Lambda', 'IAM', 'Route 53', 'RDS', 'DynamoDB'],
   },
   {
     id: 'data',
@@ -102,7 +94,6 @@ export const skillCategories: SkillCategory[] = [
     skills: [
       { id: 'figma', name: 'Figma', accent: '#ff6bb5' },
     ],
-    related: ['UI/UX', 'Responsive Design'],
   },
   {
     id: 'vcs',
@@ -122,7 +113,6 @@ export const skillCategories: SkillCategory[] = [
     skills: [
       { id: 'unity', name: 'Unity', accent: '#eef0f6' },
     ],
-    related: ['WebXR', 'MindAR', 'Realidad Aumentada'],
   },
 ]
 

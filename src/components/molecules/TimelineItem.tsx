@@ -33,12 +33,12 @@ export default function TimelineItem({
         <span className="font-mono text-[10px] tracking-widest" style={{ color }}>
           0{index + 1}
         </span>
-        <span className="font-mono text-[10px] text-[#6a6a78]">{item.period}</span>
-        <span className="font-mono text-[10px] text-[#5a5a64]">{item.location}</span>
+        <span className="font-mono text-[10px] text-[#c0c0c8]">{item.period}</span>
+        <span className="font-mono text-[10px] text-[#c0c0c8]">{item.location}</span>
         {item.isActual && (
           <span
             className="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full text-black font-semibold"
-            style={{ background: color }}
+            style={{ background: color, padding: '2px 8px' }}
           >
             Ahora
           </span>

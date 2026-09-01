@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Space+Mono:wght@400;700&display=swap');
 @import "tailwindcss";
+@config "../../tailwind.config.ts";
 @import "tw-animate-css";
 
 :root {
@@ -23,8 +24,6 @@
 *,
 *::before,
 *::after {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
@@ -400,12 +399,6 @@ body {
   margin-bottom: 0.5rem;
 }
 
-.accent-pink { color: var(--pop-pink); }
-.accent-purple { color: var(--pop-purple); }
-.accent-blue { color: var(--pop-blue); }
-.accent-orange { color: var(--pop-orange); }
-.accent-yellow { color: var(--pop-yellow); }
-
 @layer utilities {
   .accent-pink { color: var(--pop-pink); }
   .accent-purple { color: var(--pop-purple); }
@@ -612,8 +605,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  min-height: 110px;
+  gap: 10px;
+  min-height: 90px;
   padding: 1.15rem 0.75rem;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(192, 192, 200, 0.12);

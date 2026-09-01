@@ -11,7 +11,7 @@ export default function ExperienceSection() {
       <section className="section" id="work">
         <SectionLabel accent="orange">03 // Trayectoria</SectionLabel>
         <h2
-          className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight text-white"
+          className="mt-3 mb-6 md:mb-8 text-3xl md:text-4xl font-semibold tracking-tight text-white"
           style={sans}
         >
           Experiencia laboral

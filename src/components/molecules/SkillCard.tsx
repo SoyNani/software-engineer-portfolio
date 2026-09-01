@@ -25,7 +25,7 @@ export default function SkillCard({ skill, index }: SkillCardProps) {
       <div className="skill-card-corner skill-card-corner--br" />
 
       <div className="skill-card-icon">
-        <TechIcon id={skill.id} color={skill.accent} size={30} />
+        <TechIcon id={skill.id} color={skill.accent} size={18} />
       </div>
       <span className="skill-card-name">{skill.name}</span>
       <span className="skill-card-code font-mono">
