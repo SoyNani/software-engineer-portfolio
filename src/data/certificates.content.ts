@@ -28,6 +28,9 @@ export const certificates: CertificateItem[] = [
     issuer: 'Matsuo-Iwasawa Laboratory, Graduate School of Engineering, University of Tokyo',
     period: 'Finalizado',
     status: 'completed',
+    previewUrl: '/certificates/mintic-ai.png',
+    downloadUrl: '/certificates/gci-world.pdf',
+    fileName: 'Laura-Lopez-GCI-World.pdf',
   },
   {
     id: 'miu-leadership',
@@ -49,8 +52,8 @@ export const certificates: CertificateItem[] = [
     issuer: 'University of California, Irvine (Coursera)',
     period: 'Finalizado',
     status: 'completed',
-    // previewUrl: '/certificates/uci-decision.png',
-    // downloadUrl: '/certificates/uci-decision.pdf',
+    downloadUrl: '/certificates/university-of-califronia.pdf',
+    fileName: 'Laura-Lopez-Irvine.pdf',
   },
   {
     id: 'mintic-ai',

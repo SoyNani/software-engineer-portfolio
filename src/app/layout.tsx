@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Laura López | Desarrolladora de Software",
     description:
-      "Desarrolladora de software especializada en Flutter. Descubre mis proyectos y trayectoria.",
+      "Desarrolladora de software fullstack especializada en Flutter. Descubre mis proyectos y trayectoria.",
     url: "https://software-engineer-portfolio-mu.vercel.app",
     siteName: "Laura López",
     locale: "es_CO",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Laura López | Desarrolladora de Software",
     description:
-      "Desarrolladora de software especializada en Flutter. Descubre mis proyectos y trayectoria.",
+      "Desarrolladora de software fullstack especializada en Flutter. Descubre mis proyectos y trayectoria.",
     images: ["/og-image.png"],
   },
   robots: {
