@@ -1,6 +1,6 @@
 'use client'
 
-import { Eye, Download, FileBadge } from 'lucide-react'
+import { Eye, Download, FileBadge, ExternalLink  } from 'lucide-react'
 import type { CertificateItem } from '@/data/certificates.content'
 import { sans } from '@/lib/styles'
 
@@ -13,6 +13,7 @@ type CertificateCardProps = {
 export default function CertificateCard({ item, index, onPreview }: CertificateCardProps) {
   const canPreview = Boolean(item.previewUrl)
   const canDownload = Boolean(item.downloadUrl)
+  const canVerify = Boolean(item.verifyUrl)
   const isProgress = item.status === 'in-progress'
 
   return (
@@ -45,34 +46,49 @@ export default function CertificateCard({ item, index, onPreview }: CertificateC
       </div>
 
       <div className="cert-row-actions">
-        <button
-          type="button"
-          className="cert-action"
-          onClick={() => onPreview(item)}
-          title={canPreview ? 'Vista previa' : 'Ver detalle'}
-        >
-          <Eye size={14} strokeWidth={1.5} />
-          <span className="hidden sm:inline">Preview</span>
-        </button>
-
-        {canDownload ? (
+        {canVerify ? (
           <a
-            href={item.downloadUrl}
-            download={item.fileName || true}
+            href={item.verifyUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="cert-action cert-action--primary"
-            title="Descargar certificado"
+            title="Verificar credencial"
           >
-            <Download size={14} strokeWidth={1.5} />
-            <span className="hidden sm:inline">PDF</span>
+            <ExternalLink size={14} strokeWidth={1.5} />
+            <span>Verificar</span>
           </a>
         ) : (
-          <span
-            className="cert-action cert-action--disabled"
-            title="Archivo aún no disponible"
-          >
-            <Download size={14} strokeWidth={1.5} />
-            <span className="hidden sm:inline">PDF</span>
-          </span>
+          <>
+            <button
+              type="button"
+              className="cert-action"
+              onClick={() => onPreview(item)}
+              title={canPreview ? 'Vista previa' : 'Ver detalle'}
+            >
+              <Eye size={14} strokeWidth={1.5} />
+              <span className="hidden sm:inline">Preview</span>
+            </button>
+
+            {canDownload ? (
+              <a
+                href={item.downloadUrl}
+                download={item.fileName || true}
+                className="cert-action cert-action--primary"
+                title="Descargar certificado"
+              >
+                <Download size={14} strokeWidth={1.5} />
+                <span className="hidden sm:inline">PDF</span>
+              </a>
+            ) : (
+              <span
+                className="cert-action cert-action--disabled"
+                title="Archivo aún no disponible"
+              >
+                <Download size={14} strokeWidth={1.5} />
+                <span className="hidden sm:inline">PDF</span>
+              </span>
+            )}
+          </>
         )}
       </div>
     </article>

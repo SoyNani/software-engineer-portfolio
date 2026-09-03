@@ -6,7 +6,7 @@ import { sans } from '@/lib/styles'
 export default function ProjectsSection() {
   return (
     <section className="section" id="projects">
-      <SectionLabel accent="blue">04 // Artefactos</SectionLabel>
+      <SectionLabel accent="blue">04 // Proyectos</SectionLabel>
       <h2
         className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight mb-10 text-white"
         style={sans}

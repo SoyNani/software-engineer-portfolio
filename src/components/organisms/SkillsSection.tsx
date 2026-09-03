@@ -11,7 +11,7 @@ export default function SkillsSection() {
     <section className="section" id="skills">
       <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8 md:mb-10">
         <div>
-          <SectionLabel accent="pink">02 // Sistema</SectionLabel>
+          <SectionLabel accent="pink">02 // HABILIDADES</SectionLabel>
           <h2
             className="mt-3 mb-1 text-3xl md:text-4xl font-semibold tracking-tight text-white"
             style={sans}
@@ -19,9 +19,6 @@ export default function SkillsSection() {
             Mis habilidades
           </h2>
         </div>
-        <span className="font-mono text-[10px] tracking-[0.2em] text-[#5a5a64] uppercase pb-1">
-          MODULES // {String(skillsFlat.length).padStart(2, '0')}
-        </span>
       </div>
 
       <motion.div

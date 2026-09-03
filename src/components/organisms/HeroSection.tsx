@@ -22,10 +22,9 @@ export default function HeroSection() {
         justifyContent: 'space-between',
       }}
     >
-      <div className="flex items-start justify-between gap-4 w-full">
+      {/* <div className="flex items-start justify-between gap-4 w-full">
         <SectionLabel accent="purple">01 // Inicio</SectionLabel>
-        <span className="font-mono text-[10px] tracking-widest text-[#6a6a78]">0014</span>
-      </div>
+      </div> */}
 
       <div className="hero-grid py-10 md:py-14">
         <div className="w-full">
@@ -56,8 +55,7 @@ export default function HeroSection() {
             className="max-w-lg text-base md:text-lg text-[#a8b0c4] font-light leading-relaxed"
             style={{ ...sans, marginTop: '1.5rem' }}
           >
-            Desarrollo soluciones digitales con enfoque estratégico. Tecnología que
-            conecta experiencia y valor real.
+            Desarrolladora de software especializada en Flutter, con base fullstack. Construyo aplicaciones móviles con arquitectura limpia, de la idea a producción. 
           </motion.p>
           <motion.div
             initial={{ opacity: 0 }}

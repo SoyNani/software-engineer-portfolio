@@ -20,7 +20,7 @@ export default function ContactSection() {
         }}
       >
         <div className="w-full max-w-xl">
-          <SectionLabel accent="pink">06 // Señal</SectionLabel>
+          <SectionLabel accent="pink">06 // construyamos</SectionLabel>
           <h2
             className="mt-4 text-[clamp(2rem,6vw,3.5rem)] font-semibold tracking-tight text-white leading-tight"
             style={sans}

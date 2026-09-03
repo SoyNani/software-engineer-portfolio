@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 
 export default function HudFrame() {
   const [coords, setCoords] = useState({ x: 0.0762, y: 0.0022 })
-  const [time, setTime] = useState('OFF')
+  const currentYear = new Date().getFullYear()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,19 +18,11 @@ export default function HudFrame() {
       })
     }
 
-    const timeInterval = setInterval(() => {
-      const now = new Date()
-      setTime(
-        `${String(now.getHours()).padStart(2, '0')}${String(now.getMinutes()).padStart(2, '0')}`
-      )
-    }, 1000)
-
     const scrollEl = document.querySelector('.content-scroll')
     scrollEl?.addEventListener('scroll', handleScroll, { passive: true })
 
     return () => {
       scrollEl?.removeEventListener('scroll', handleScroll)
-      clearInterval(timeInterval)
     }
   }, [])
 
@@ -39,12 +31,11 @@ export default function HudFrame() {
       <div className="frame-top">
         <div className="hud-status">
           <span style={{ marginRight: 12, color: '#8a8a94' }}>◆</span>
-          <span className="hud-label">{time}</span>
+          <span className="hud-label">{currentYear}</span>
         </div>
         <div className="frame-top-notch">
-          <span className="hud-title">NANI // MISSION</span>
+          <span className="hud-title">NANI // PORTAFOLIO</span>
         </div>
-        <div className="hud-menu">MENU</div>
       </div>
 
       <div className="frame-bottom">
@@ -61,7 +52,7 @@ export default function HudFrame() {
           ))}
         </div>
         <div className="vertical-text" style={{ margin: '16px 0', color: '#8a8a94' }}>
-          G_0015
+          SOFT
         </div>
         <div className="side-ticks">
           {[...Array(8)].map((_, i) => (
@@ -72,7 +63,7 @@ export default function HudFrame() {
 
       <div className="frame-right">
         <div className="vertical-text" style={{ color: '#8a8a94', marginBottom: 16 }}>
-          SYS_ON
+          L A U
         </div>
         <div className="side-ticks">
           {[...Array(10)].map((_, i) => (
@@ -80,7 +71,7 @@ export default function HudFrame() {
           ))}
         </div>
         <div className="vertical-text" style={{ color: '#5a5a64', marginTop: 16 }}>
-          NANI.v2
+          NANI.2.0
         </div>
       </div>
 

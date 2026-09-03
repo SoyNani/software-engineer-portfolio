@@ -10,7 +10,6 @@ export default function HeroAvatar() {
       <div className="avatar-hud-ring" />
       <div className="avatar-hud-ring-inner" />
       <div className="avatar-hud-core">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={AVATAR_SRC} alt="Laura López" />
       </div>
       <span

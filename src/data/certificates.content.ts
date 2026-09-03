@@ -4,23 +4,13 @@ export interface CertificateItem {
   issuer: string
   period: string
   status?: 'completed' | 'in-progress'
-  /** Vista previa (imagen o página del certificado) */
   previewUrl?: string
-  /** Archivo descargable (PDF u otro) */
   downloadUrl?: string
-  /** Nombre sugerido al descargar */
   fileName?: string
-  /** Código / ID de credencial */
   credentialId?: string
+  verifyUrl?: string
 }
 
-/**
- * Añade previewUrl / downloadUrl cuando tengas el PDF o imagen del certificado.
- * Ejemplo:
- *   previewUrl: '/certificates/ai-bootcamp.png',
- *   downloadUrl: '/certificates/ai-bootcamp.pdf',
- *   fileName: 'Laura-Lopez-Bootcamp-IA-MinTIC.pdf',
- */
 export const certificates: CertificateItem[] = [
   {
     id: 'gci-world',
@@ -28,7 +18,7 @@ export const certificates: CertificateItem[] = [
     issuer: 'Matsuo-Iwasawa Laboratory, Graduate School of Engineering, University of Tokyo',
     period: 'Finalizado',
     status: 'completed',
-    previewUrl: '/certificates/mintic-ai.png',
+    previewUrl: '/certificates/gci-world.png',
     downloadUrl: '/certificates/gci-world.pdf',
     fileName: 'Laura-Lopez-GCI-World.pdf',
   },
@@ -45,25 +35,17 @@ export const certificates: CertificateItem[] = [
     issuer: 'Google (Coursera)',
     period: 'Finalizado',
     status: 'completed',
+    verifyUrl: 'https://www.coursera.org/account/accomplishments/badge/sJQrvDsNQR2UK7w7DfEdxw',
   },
   {
-    id: 'uci-decision',
+    id: 'Irvine',
     title: 'Cómo resolver problemas y tomar decisiones con eficacia',
     issuer: 'University of California, Irvine (Coursera)',
     period: 'Finalizado',
     status: 'completed',
+    previewUrl: '/certificates/university-of-california.png',
     downloadUrl: '/certificates/university-of-califronia.pdf',
     fileName: 'Laura-Lopez-Irvine.pdf',
-  },
-  {
-    id: 'mintic-ai',
-    title: 'Bootcamp en Inteligencia Artificial',
-    issuer: 'MinTIC Colombia',
-    period: 'Finalizado',
-    status: 'completed',
-    // previewUrl: '/certificates/mintic-ai.png',
-    // downloadUrl: '/certificates/mintic-ai.pdf',
-    // fileName: 'Laura-Lopez-Bootcamp-IA-MinTIC.pdf',
   },
 ]
 

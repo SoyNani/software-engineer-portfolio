@@ -57,7 +57,6 @@ export default function CertificatePreview({ item, onClose }: CertificatePreview
 
         <div className="cert-modal-body">
           {canPreview ? (
-            // eslint-disable-next-line @next/next/no-img-element
             <img
               src={item.previewUrl}
               alt={`Certificado: ${item.title}`}
@@ -67,11 +66,24 @@ export default function CertificatePreview({ item, onClose }: CertificatePreview
             <div className="cert-modal-placeholder">
               <div className="cert-modal-placeholder-frame">
                 <span className="font-mono text-[10px] tracking-[0.25em] text-[#5a5a64] uppercase">
-                  DOCUMENT // LOCKED
+                  {item.verifyUrl ? 'CREDENCIAL DIGITAL' : 'DOCUMENT // LOCKED'}
                 </span>
                 <p className="mt-3 text-sm text-[#8a92a8] text-center max-w-xs" style={sans}>
-                  La vista previa estará disponible cuando se cargue el archivo del certificado.
+                  {item.verifyUrl
+                    ? 'Esta credencial está disponible y verificada directamente en la plataforma emisora.'
+                    : 'Vista previa no disponible en este momento.'}
                 </p>
+                {item.verifyUrl && (
+                  <a
+                    href={item.verifyUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 cert-action cert-action--primary inline-flex items-center gap-2"
+                  >
+                    <ExternalLink size={14} strokeWidth={1.5} />
+                    Verificar credencial
+                  </a>
+                )}
                 <p className="mt-4 font-mono text-[10px] text-[#6a6a78]">
                   {item.period} · {item.status === 'completed' ? 'COMPLETED' : 'IN PROGRESS'}
                 </p>
@@ -91,6 +103,17 @@ export default function CertificatePreview({ item, onClose }: CertificatePreview
               Descargar
             </a>
           )}
+          {item.verifyUrl && (
+            <a
+              href={item.verifyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cert-action cert-action--primary"
+            >
+              <ExternalLink size={14} strokeWidth={1.5} />
+              Verificar
+            </a>
+          )}
           {canPreview && item.previewUrl && (
             <a
               href={item.previewUrl}
@@ -102,9 +125,6 @@ export default function CertificatePreview({ item, onClose }: CertificatePreview
               Abrir
             </a>
           )}
-          <button type="button" onClick={onClose} className="cert-action cert-action--ghost">
-            Cerrar
-          </button>
         </footer>
       </div>
     </div>

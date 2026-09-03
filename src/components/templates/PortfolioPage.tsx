@@ -21,8 +21,8 @@ export default function PortfolioPage() {
           <PageDivider />
           <ExperienceSection />
           <PageDivider />
-          <ProjectsSection />
-          <PageDivider />
+          {/* <ProjectsSection /> */}
+          {/* <PageDivider /> */}
           <CertificatesSection />
           <PageDivider />
           <ContactSection />
